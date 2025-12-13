@@ -1,9 +1,10 @@
 "use client"
 
 import { useRef, useState, useEffect, Suspense } from "react"
-import { Canvas, useFrame } from "@react-three/fiber"
-import { Environment, Float, useGLTF } from "@react-three/drei"
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber"
+import { Float, useGLTF, Environment } from "@react-three/drei"
 import * as THREE from "three"
+import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader"
 
 // Update this path to your actual skull model location
 const SKULL_MODEL_PATH = "/models/tautavel-skull.glb"
@@ -52,9 +53,50 @@ function LoadingFallback() {
   )
 }
 
+// Load an HDR equirectangular and apply a Y-axis rotation (texture.rotation)
+function HDREnvironment({ url, rotation = Math.PI / 2, background = true }: { url: string; rotation?: number; background?: boolean }) {
+  const hdr = useLoader(RGBELoader, url)
+  // Use equirectangular mapping and rotate the texture around its center
+  hdr.mapping = THREE.EquirectangularReflectionMapping
+  hdr.center = new THREE.Vector2(0.5, 0.5)
+  hdr.rotation = rotation
+
+  const { scene } = useThree()
+  useEffect(() => {
+    const prevEnv = scene.environment
+    const prevBg = scene.background
+    scene.environment = hdr
+    if (background) scene.background = hdr
+    return () => {
+      scene.environment = prevEnv
+      if (background) scene.background = prevBg
+    }
+  }, [hdr, scene, background])
+
+  return null
+}
+
 export function TautavelSkull3D() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const HDR_URL = "/hdrs/studio_small_03_1k.hdr"
+  const [hasHdr, setHasHdr] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    let mounted = true
+    fetch(HDR_URL, { method: "HEAD" })
+      .then((res) => {
+        if (!mounted) return
+        setHasHdr(res.ok)
+      })
+      .catch(() => {
+        if (!mounted) return
+        setHasHdr(false)
+      })
+    return () => {
+      mounted = false
+    }
+  }, [])
 
   useEffect(() => {
     // follow pointer (mouse, pen, touch) continuously
@@ -63,7 +105,6 @@ export function TautavelSkull3D() {
       const y = (event.clientY / window.innerHeight) * 2 - 1
       setMousePosition({ x, y })
     }
-
     const handleTouchMove = (event: TouchEvent) => {
       const t = event.touches?.[0]
       if (!t) return
@@ -71,7 +112,6 @@ export function TautavelSkull3D() {
       const y = (t.clientY / window.innerHeight) * 2 - 1
       setMousePosition({ x, y })
     }
-
     window.addEventListener("pointermove", handlePointerMove)
     window.addEventListener("touchmove", handleTouchMove, { passive: true })
     return () => {
@@ -90,7 +130,13 @@ export function TautavelSkull3D() {
         <Suspense fallback={<LoadingFallback />}>
           <SkullModel mousePosition={mousePosition} />
         </Suspense>
-        <Environment preset="studio" />
+
+        {/* Use HDR if available (so it can be rotated), otherwise fall back to the built-in preset */}
+        {hasHdr ? (
+          <HDREnvironment url={HDR_URL} rotation={Math.PI / 2} />
+        ) : (
+          <Environment preset="studio" background />
+        )}
       </Canvas>
     </div>
   )
