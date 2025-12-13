@@ -192,7 +192,7 @@ export const translations = {
     historyParagraph1:
       "La Caune de l'Arago, située près du village de Tautavel dans les Pyrénées-Orientales, est l'un des sites préhistoriques les plus importants d'Europe. Cette grotte a été occupée par des populations humaines il y a entre 700 000 et 100 000 ans.",
     historyParagraph2:
-      "En 1971, l'équipe du Professeur Henry de Lumley a fait une découverte extraordinaire : un crâne humain vieux de 450 000 ans, appartenant à un Homo erectus européen. Cette découverte a révolutionné notre compréhension de l'histoire humaine en Europe.",
+      "En 1971, l'équipe du Professeur Henry de Lumley a fait une découverte extraordinaire : un crâne humain vieux de 450 000 ans, appartenant à un Homo heidelbergensis européen. Cette découverte a révolutionné notre compréhension de l'histoire humaine en Europe.",
     historyParagraph3:
       "Depuis lors, les fouilles continues ont révélé plus de 600 000 artefacts et 150 restes humains, faisant de Tautavel l'un des sites les plus riches au monde pour l'étude de nos ancêtres.",
     keyFacts: "Chiffres Clés",
@@ -430,7 +430,7 @@ export const translations = {
     historyParagraph1:
       "The Caune de l'Arago, located near the village of Tautavel in the Pyrénées-Orientales, is one of Europe's most important prehistoric sites. This cave was occupied by human populations between 700,000 and 100,000 years ago.",
     historyParagraph2:
-      "In 1971, Professor Henry de Lumley's team made an extraordinary discovery: a 450,000-year-old human skull belonging to a European Homo erectus. This discovery revolutionized our understanding of human history in Europe.",
+      "In 1971, Professor Henry de Lumley's team made an extraordinary discovery: a 450,000-year-old human skull belonging to a European Homo heidelbergensis. This discovery revolutionized our understanding of human history in Europe.",
     historyParagraph3:
       "Since then, continuous excavations have revealed over 600,000 artifacts and 150 human remains, making Tautavel one of the world's richest sites for studying our ancestors.",
     keyFacts: "Key Facts",
@@ -669,7 +669,7 @@ export const translations = {
     historyParagraph1:
       "La Caune de l'Arago, situada prop del poble de Talteüll als Pirineus Orientals, és un dels jaciments prehistòrics més importants d'Europa. Aquesta cova va ser ocupada per poblacions humanes fa entre 700.000 i 100.000 anys.",
     historyParagraph2:
-      "El 1971, l'equip del Professor Henry de Lumley va fer un descobriment extraordinari: un crani humà de 450.000 anys d'antiguitat, pertanyent a un Homo erectus europeu. Aquest descobriment va revolucionar la nostra comprensió de la història humana a Europa.",
+      "El 1971, l'equip del Professor Henry de Lumley va fer un descobriment extraordinari: un crani humà de 450.000 anys d'antiguitat, pertanyent a un Homo heidelbergensis europeu. Aquest descobriment va revolucionar la nostra comprensió de la història humana a Europa.",
     historyParagraph3:
       "Des de llavors, les excavacions contínues han revelat més de 600.000 artefactes i 150 restes humanes, convertint Talteüll en un dels jaciments més rics del món per a l'estudi dels nostres avantpassats.",
     keyFacts: "Dades Clau",
@@ -909,7 +909,7 @@ export const translations = {
     historyParagraph1:
       "La Caune de l'Arago, situada cerca del pueblo de Tautavel en los Pirineos Orientales, es uno de los yacimientos prehistóricos más importantes de Europa. Esta cueva fue ocupada por poblaciones humanas hace entre 700.000 y 100.000 años.",
     historyParagraph2:
-      "En 1971, el equipo del Profesor Henry de Lumley hizo un descubrimiento extraordinario: un cráneo humano de 450.000 años de antigüedad, perteneciente a un Homo erectus europeo. Este descubrimiento revolucionó nuestra comprensión de la historia humana en Europa.",
+      "En 1971, el equipo del Profesor Henry de Lumley hizo un descubrimiento extraordinario: un cráneo humano de 450.000 años de antigüedad, perteneciente a un Homo heidelbergensis europeo. Este descubrimiento revolucionó nuestra comprensión de la historia humana en Europa.",
     historyParagraph3:
       "Desde entonces, las excavaciones continuas han revelado más de 600.000 artefactos y 150 restos humanos, convirtiendo a Tautavel en uno de los yacimientos más ricos del mundo para el estudio de nuestros antepasados.",
     keyFacts: "Datos Clave",
