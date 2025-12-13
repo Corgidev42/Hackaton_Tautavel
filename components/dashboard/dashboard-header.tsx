@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { useRouter, usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {
@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { LogOut, Settings, User } from "lucide-react"
+import { LogOut, Settings, User, LayoutDashboard } from "lucide-react"
 
 interface DashboardHeaderProps {
   user: {
@@ -22,6 +22,7 @@ interface DashboardHeaderProps {
 
 export function DashboardHeader({ user }: DashboardHeaderProps) {
   const router = useRouter()
+  const pathname = usePathname()
 
   const handleLogout = () => {
     sessionStorage.removeItem("tautavel-user")
@@ -37,9 +38,29 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
           </div>
           <div className="flex flex-col">
             <span className="text-lg font-semibold tracking-tight">Tautavel Vector</span>
-            <span className="text-xs text-muted-foreground">Contribution Dashboard</span>
+            <span className="text-xs text-muted-foreground">Citizen Science Project</span>
           </div>
         </Link>
+
+        <nav className="hidden items-center gap-6 md:flex">
+          <Link
+            href="/dashboard"
+            className={`text-sm font-medium transition-colors hover:text-catalan-red ${
+              pathname === "/dashboard" ? "text-catalan-red" : "text-muted-foreground"
+            }`}
+          >
+            Dashboard
+          </Link>
+          <Link
+            href="/profile"
+            className={`text-sm font-medium transition-colors hover:text-catalan-red ${
+              pathname === "/profile" ? "text-catalan-red" : "text-muted-foreground"
+            }`}
+          >
+            Profile
+          </Link>
+        </nav>
+        {/* End navigation */}
 
         <div className="flex items-center gap-4">
           <div className="hidden text-right sm:block">
@@ -65,9 +86,17 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
                 </div>
               </div>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <User className="mr-2 h-4 w-4" />
-                <span>Profile</span>
+              <DropdownMenuItem asChild>
+                <Link href="/dashboard">
+                  <LayoutDashboard className="mr-2 h-4 w-4" />
+                  <span>Dashboard</span>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/profile">
+                  <User className="mr-2 h-4 w-4" />
+                  <span>Profile</span>
+                </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Settings className="mr-2 h-4 w-4" />
