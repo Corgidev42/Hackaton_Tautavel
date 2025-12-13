@@ -1,4 +1,17 @@
 services:
+  backend:
+    container_name: archeotrace-backend
+    build:
+      context: ./backend
+    ports:
+      - "4000:5173"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    environment:
+      - WATCHPACK_POLLING=true
+    command: npm run dev
+
   frontend:
     container_name: poc-frontend
     build:
@@ -11,3 +24,5 @@ services:
     environment:
       - WATCHPACK_POLLING=true
       - NEXT_PUBLIC_API_URL=http://backend:4000
+    depends_on:
+      - backend
