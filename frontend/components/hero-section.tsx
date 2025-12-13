@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { useLanguage } from "@/lib/i18n/language-context"
 import { TautavelSkull3D } from "@/components/tautavel-skull-3d"
+import Link from "next/link"
 
 export function HeroSection() {
   const { t } = useLanguage()
@@ -28,12 +29,23 @@ export function HeroSection() {
           </p>
 
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row md:mt-10 md:gap-4">
-            <Button size="lg" className="w-full bg-catalan-red hover:bg-catalan-red-dark text-white px-8 sm:w-auto">
-              {t("startContributing")}
-              <ArrowRight className="ml-2 h-4 w-4" />
+            <Button
+              asChild
+              size="lg"
+              className="w-full bg-catalan-red hover:bg-catalan-red-dark text-white px-8 sm:w-auto"
+            >
+              <Link href="/contribute">
+                {t("startContributing")}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
-            <Button size="lg" variant="outline" className="w-full border-muted-foreground/30 bg-transparent sm:w-auto">
-              {t("learnMore")}
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="w-full border-muted-foreground/30 bg-transparent sm:w-auto"
+            >
+              <Link href="/about">{t("learnMore")}</Link>
             </Button>
           </div>
 

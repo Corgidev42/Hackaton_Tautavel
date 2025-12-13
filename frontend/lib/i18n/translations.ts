@@ -182,6 +182,70 @@ export const translations = {
     forest: "Forêt",
     deepBlue: "Bleu Profond",
     black: "Noir",
+
+    pyreneesOrientales: "Pyrénées-Orientales, France",
+    aboutTitle: "La Caune de l'Arago",
+    aboutSubtitle:
+      "Découvrez l'histoire fascinante de l'un des sites préhistoriques les plus importants d'Europe, abritant les plus anciens restes humains de France.",
+    discoveredIn1971: "Découvert en 1971",
+    historyTitle: "Une Découverte Extraordinaire",
+    historyParagraph1:
+      "La Caune de l'Arago, située près du village de Tautavel dans les Pyrénées-Orientales, est l'un des sites préhistoriques les plus importants d'Europe. Cette grotte a été occupée par des populations humaines il y a entre 700 000 et 100 000 ans.",
+    historyParagraph2:
+      "En 1971, l'équipe du Professeur Henry de Lumley a fait une découverte extraordinaire : un crâne humain vieux de 450 000 ans, appartenant à un Homo erectus européen. Cette découverte a révolutionné notre compréhension de l'histoire humaine en Europe.",
+    historyParagraph3:
+      "Depuis lors, les fouilles continues ont révélé plus de 600 000 artefacts et 150 restes humains, faisant de Tautavel l'un des sites les plus riches au monde pour l'étude de nos ancêtres.",
+    keyFacts: "Chiffres Clés",
+    yearsOld: "Années d'Ancienneté",
+    humanRemains: "Restes Humains",
+    artifactsDiscovered: "Artefacts Découverts",
+    yearsOfResearch: "Années de Recherche",
+    tautavelManTitle: "L'Homme de Tautavel",
+    tautavelManParagraph1:
+      "L'Homme de Tautavel est le nom donné aux restes humains découverts dans la grotte. Il s'agit de l'un des plus anciens Européens connus, vivant il y a environ 450 000 ans pendant le Pléistocène moyen.",
+    tautavelManParagraph2:
+      "Ces chasseurs-cueilleurs étaient parfaitement adaptés à leur environnement. Ils fabriquaient des outils en pierre sophistiqués et chassaient de grands animaux comme les chevaux, les bisons et les rhinocéros.",
+    tautavelManParagraph3:
+      "L'étude de leurs restes et de leurs outils nous permet de mieux comprendre l'évolution humaine, les migrations préhistoriques et les modes de vie de nos ancêtres lointains.",
+    ourMission: "Notre Mission",
+    missionParagraph1:
+      "Le projet Tautavel Vector vise à préserver numériquement les milliers de dessins archéologiques réalisés au cours de 50 ans de fouilles. Ces dessins représentent un patrimoine scientifique inestimable.",
+    missionParagraph2:
+      "Grâce à la contribution de citoyens du monde entier, nous transformons ces dessins en fichiers vectoriels haute résolution, garantissant leur préservation pour les générations futures et facilitant la recherche scientifique.",
+
+    joinCommunity: "Rejoignez 2 341 Contributeurs",
+    contributeTitle: "Comment Contribuer",
+    contributeSubtitle:
+      "Participez à la préservation du patrimoine préhistorique en numérisant les dessins archéologiques. Aucune expérience requise, juste votre curiosité et quelques minutes de votre temps.",
+    startNow: "Commencer Maintenant",
+    howItWorksTitle: "Comment Ça Marche",
+    howItWorksSubtitle: "Quatre étapes simples pour contribuer à la science",
+    step1Title: "Choisissez un Artefact",
+    step1Description: "Parcourez notre collection et sélectionnez un dessin archéologique à vectoriser.",
+    step2Title: "Tracez les Contours",
+    step2Description: "Utilisez nos outils intuitifs pour tracer les contours et détails de l'artefact.",
+    step3Title: "Vérifiez et Annotez",
+    step3Description: "Ajoutez des informations sur le type d'artefact, son état et vos observations.",
+    step4Title: "Soumettez votre Travail",
+    step4Description: "Envoyez votre contribution pour validation par notre équipe d'experts.",
+    whatIsVectorization: "Qu'est-ce que la Vectorisation ?",
+    vectorizationParagraph1:
+      "La vectorisation est le processus de conversion d'images en graphiques vectoriels. Contrairement aux images traditionnelles composées de pixels, les graphiques vectoriels sont définis par des équations mathématiques.",
+    vectorizationParagraph2:
+      "Cela permet de conserver une qualité parfaite quelle que soit la taille d'affichage, ce qui est essentiel pour la préservation à long terme des documents archéologiques.",
+    vectorizationParagraph3:
+      "Votre travail de tracé permet de créer des fichiers numériques durables qui pourront être utilisés par les chercheurs pendant des décennies.",
+    rewardsTitle: "Récompenses et Reconnaissance",
+    rewardsSubtitle: "Votre contribution est valorisée à travers notre système de gamification",
+    earnXPTitle: "Gagnez de l'XP",
+    earnXPDescription: "Chaque vectorisation complétée vous rapporte des points d'expérience pour progresser.",
+    leaderboardTitle: "Classement",
+    leaderboardDescription: "Comparez vos contributions avec celles des autres membres de la communauté.",
+    achievementsTitle: "Succès à Débloquer",
+    achievementsDescription: "Débloquez des badges et succès en atteignant des objectifs de contribution.",
+    readyToStart: "Prêt à Commencer ?",
+    readyToStartSubtitle: "Rejoignez notre communauté de contributeurs et aidez à préserver l'histoire de l'humanité.",
+    createAccount: "Créer un Compte",
   },
   en: {
     // Header
@@ -356,6 +420,70 @@ export const translations = {
     forest: "Forest",
     deepBlue: "Deep Blue",
     black: "Black",
+
+    pyreneesOrientales: "Pyrénées-Orientales, France",
+    aboutTitle: "The Arago Cave",
+    aboutSubtitle:
+      "Discover the fascinating history of one of Europe's most important prehistoric sites, home to the oldest human remains in France.",
+    discoveredIn1971: "Discovered in 1971",
+    historyTitle: "An Extraordinary Discovery",
+    historyParagraph1:
+      "The Caune de l'Arago, located near the village of Tautavel in the Pyrénées-Orientales, is one of Europe's most important prehistoric sites. This cave was occupied by human populations between 700,000 and 100,000 years ago.",
+    historyParagraph2:
+      "In 1971, Professor Henry de Lumley's team made an extraordinary discovery: a 450,000-year-old human skull belonging to a European Homo erectus. This discovery revolutionized our understanding of human history in Europe.",
+    historyParagraph3:
+      "Since then, continuous excavations have revealed over 600,000 artifacts and 150 human remains, making Tautavel one of the world's richest sites for studying our ancestors.",
+    keyFacts: "Key Facts",
+    yearsOld: "Years Old",
+    humanRemains: "Human Remains",
+    artifactsDiscovered: "Artifacts Discovered",
+    yearsOfResearch: "Years of Research",
+    tautavelManTitle: "Tautavel Man",
+    tautavelManParagraph1:
+      "Tautavel Man is the name given to the human remains discovered in the cave. He is one of the oldest known Europeans, living approximately 450,000 years ago during the Middle Pleistocene.",
+    tautavelManParagraph2:
+      "These hunter-gatherers were perfectly adapted to their environment. They crafted sophisticated stone tools and hunted large animals such as horses, bison, and rhinoceroses.",
+    tautavelManParagraph3:
+      "Studying their remains and tools helps us better understand human evolution, prehistoric migrations, and the lifestyles of our distant ancestors.",
+    ourMission: "Our Mission",
+    missionParagraph1:
+      "The Tautavel Vector project aims to digitally preserve thousands of archaeological drawings created over 50 years of excavations. These drawings represent an invaluable scientific heritage.",
+    missionParagraph2:
+      "Through contributions from citizens worldwide, we transform these drawings into high-resolution vector files, ensuring their preservation for future generations and facilitating scientific research.",
+
+    joinCommunity: "Join 2,341 Contributors",
+    contributeTitle: "How to Contribute",
+    contributeSubtitle:
+      "Participate in preserving prehistoric heritage by digitizing archaeological drawings. No experience required, just your curiosity and a few minutes of your time.",
+    startNow: "Start Now",
+    howItWorksTitle: "How It Works",
+    howItWorksSubtitle: "Four simple steps to contribute to science",
+    step1Title: "Choose an Artifact",
+    step1Description: "Browse our collection and select an archaeological drawing to vectorize.",
+    step2Title: "Trace the Outlines",
+    step2Description: "Use our intuitive tools to trace the outlines and details of the artifact.",
+    step3Title: "Verify and Annotate",
+    step3Description: "Add information about the artifact type, condition, and your observations.",
+    step4Title: "Submit Your Work",
+    step4Description: "Send your contribution for validation by our expert team.",
+    whatIsVectorization: "What is Vectorization?",
+    vectorizationParagraph1:
+      "Vectorization is the process of converting images into vector graphics. Unlike traditional images made of pixels, vector graphics are defined by mathematical equations.",
+    vectorizationParagraph2:
+      "This allows for perfect quality at any display size, which is essential for long-term preservation of archaeological documents.",
+    vectorizationParagraph3:
+      "Your tracing work creates durable digital files that researchers will be able to use for decades.",
+    rewardsTitle: "Rewards and Recognition",
+    rewardsSubtitle: "Your contribution is valued through our gamification system",
+    earnXPTitle: "Earn XP",
+    earnXPDescription: "Each completed vectorization earns you experience points to level up.",
+    leaderboardTitle: "Leaderboard",
+    leaderboardDescription: "Compare your contributions with other community members.",
+    achievementsTitle: "Unlock Achievements",
+    achievementsDescription: "Unlock badges and achievements by reaching contribution goals.",
+    readyToStart: "Ready to Start?",
+    readyToStartSubtitle: "Join our community of contributors and help preserve human history.",
+    createAccount: "Create Account",
   },
   ca: {
     // Header
@@ -513,7 +641,7 @@ export const translations = {
       "Afegiu observacions sobre característiques distintives, patrons de danys o altres detalls rellevants...",
     submitWork: "Enviar Treball",
     saveDraft: "Desar Esborrany",
-    saved: "Desat!",
+    saved: "¡Guardado!",
     submitVectorization: "Enviar Vectorització",
     earnXP: "Guanya",
     forEachVectorization: "per cada vectorització completada",
@@ -531,6 +659,71 @@ export const translations = {
     forest: "Bosc",
     deepBlue: "Blau Profund",
     black: "Negre",
+
+    pyreneesOrientales: "Pirineus Orientals, França",
+    aboutTitle: "La Cova de l'Aragó",
+    aboutSubtitle:
+      "Descobriu la fascinant història d'un dels jaciments prehistòrics més importants d'Europa, que alberga les restes humanes més antics de França.",
+    discoveredIn1971: "Descobert el 1971",
+    historyTitle: "Un Descobriment Extraordinari",
+    historyParagraph1:
+      "La Caune de l'Arago, situada prop del poble de Talteüll als Pirineus Orientals, és un dels jaciments prehistòrics més importants d'Europa. Aquesta cova va ser ocupada per poblacions humanes fa entre 700.000 i 100.000 anys.",
+    historyParagraph2:
+      "El 1971, l'equip del Professor Henry de Lumley va fer un descobriment extraordinari: un crani humà de 450.000 anys d'antiguitat, pertanyent a un Homo erectus europeu. Aquest descobriment va revolucionar la nostra comprensió de la història humana a Europa.",
+    historyParagraph3:
+      "Des de llavors, les excavacions contínues han revelat més de 600.000 artefactes i 150 restes humanes, convertint Talteüll en un dels jaciments més rics del món per a l'estudi dels nostres avantpassats.",
+    keyFacts: "Dades Clau",
+    yearsOld: "Anys d'Antiguitat",
+    humanRemains: "Restes Humanes",
+    artifactsDiscovered: "Artefactes Descoberts",
+    yearsOfResearch: "Anys de Recerca",
+    tautavelManTitle: "L'Home de Talteüll",
+    tautavelManParagraph1:
+      "L'Home de Talteüll és el nom donat a les restes humanes descobertes a la cova. És un dels europeus més antics coneguts, que va viure fa aproximadament 450.000 anys durant el Pleistocè mitjà.",
+    tautavelManParagraph2:
+      "Aquests caçadors-recol·lectors estaven perfectament adaptats al seu entorn. Fabricaven eines de pedra sofisticades i caçaven grans animals com cavalls, bisons i rinoceronts.",
+    tautavelManParagraph3:
+      "L'estudi de les seves restes i eines ens ajuda a entendre millor l'evolució humana, les migracions prehistòriques i els estils de vida dels nostres avantpassats llunyans.",
+    ourMission: "La Nostra Missió",
+    missionParagraph1:
+      "El projecte Tautavel Vector té com a objectiu preservar digitalment milers de dibuixos arqueològics creats al llarg de 50 anys d'excavacions. Aquests dibuixos representen un patrimoni científic inestimable.",
+    missionParagraph2:
+      "Gràcies a les contribucions de ciutadans de tot el món, transformem aquests dibuixos en fitxers vectorials d'alta resolució, garantint la seva preservació per a les generacions futures i facilitant la recerca científica.",
+
+    joinCommunity: "Uniu-vos a 2.341 Col·laboradors",
+    contributeTitle: "Com Contribuir",
+    contributeSubtitle:
+      "Participeu en la preservació del patrimoni prehistòric digitalitzant dibuixos arqueològics. No cal experiència, només la vostra curiositat i uns minuts del vostre temps.",
+    startNow: "Comença Ara",
+    howItWorksTitle: "Com Funciona",
+    howItWorksSubtitle: "Quatre passos simples per contribuir a la ciència",
+    step1Title: "Trieu un Artefacte",
+    step1Description: "Navegueu per la nostra col·lecció i seleccioneu un dibuix arqueològic per vectoritzar.",
+    step2Title: "Traceu els Contorns",
+    step2Description: "Utilitzeu les nostres eines intuïtives per traçar els contorns i detalls de l'artefacte.",
+    step3Title: "Verifiqueu i Anoteu",
+    step3Description: "Afegiu informació sobre el tipus d'artefacte, el seu estat i les vostres observacions.",
+    step4Title: "Envieu el Vostre Treball",
+    step4Description: "Envieu la vostra contribució per a la validació pel nostre equip d'experts.",
+    whatIsVectorization: "Què és la Vectorització?",
+    vectorizationParagraph1:
+      "La vectorització és el procés de conversió d'imatges en gràfics vectorials. A diferència de les imatges tradicionals compostes de píxels, els gràfics vectorials es defineixen mitjançant equacions matemàtiques.",
+    vectorizationParagraph2:
+      "Això permet mantenir una qualitat perfecta a qualsevol mida de visualització, essencial per a la preservació a llarg termini dels documents arqueològics.",
+    vectorizationParagraph3:
+      "El vostre treball de traçat crea fitxers digitals duradors que els investigadors podran utilitzar durant dècades.",
+    rewardsTitle: "Recompenses i Reconeixement",
+    rewardsSubtitle: "La vostra contribució és valorada a través del nostre sistema de gamificació",
+    earnXPTitle: "Guanyeu XP",
+    earnXPDescription: "Cada vectorització completada us aporta punts d'experiència per avançar.",
+    leaderboardTitle: "Classificació",
+    leaderboardDescription: "Compareu les vostres contribucions amb les d'altres membres de la comunitat.",
+    achievementsTitle: "Assoliments a Desbloquejar",
+    achievementsDescription: "Desbloquegeu insígnies i assoliments aconseguint objectius de contribució.",
+    readyToStart: "Preparats per Començar?",
+    readyToStartSubtitle:
+      "Uniu-vos a la nostra comunitat de col·laboradors i ajudeu a preservar la història de la humanitat.",
+    createAccount: "Crear Compte",
   },
   es: {
     // Header
@@ -664,20 +857,20 @@ export const translations = {
     artifactDetails: "Detalles del Artefacto",
     artifactId: "ID del Artefacto",
     category: "Categoría",
-    selectType: "Selecciona tipo",
+    selectType: "Seleccionar tipo",
     stoneTool: "Herramienta de Piedra",
     boneFragment: "Fragmento de Hueso",
     faunaRemains: "Restos de Fauna",
     other: "Otro",
     material: "Material",
-    selectMaterial: "Selecciona material",
+    selectMaterial: "Seleccionar material",
     flint: "Sílex",
     quartzite: "Cuarcita",
     limestone: "Caliza",
     antler: "Asta de Ciervo",
     unknown: "Desconocido",
     preservationCondition: "Estado de Conservación",
-    assessCondition: "Evalúa el estado",
+    assessCondition: "Evaluar estado",
     excellent: "Excelente",
     good: "Bueno",
     fair: "Regular",
@@ -685,7 +878,7 @@ export const translations = {
     fragmentary: "Fragmentario",
     notesAndObservations: "Notas y Observaciones",
     notesPlaceholder:
-      "Añade observaciones sobre características distintivas, patrones de daños u otros detalles relevantes...",
+      "Añade observaciones sobre características distintivas, patrones de daño u otros detalles relevantes...",
     submitWork: "Enviar Trabajo",
     saveDraft: "Guardar Borrador",
     saved: "¡Guardado!",
@@ -706,6 +899,70 @@ export const translations = {
     forest: "Bosque",
     deepBlue: "Azul Profundo",
     black: "Negro",
+
+    pyreneesOrientales: "Pirineos Orientales, Francia",
+    aboutTitle: "La Cueva de Arago",
+    aboutSubtitle:
+      "Descubre la fascinante historia de uno de los yacimientos prehistóricos más importantes de Europa, hogar de los restos humanos más antiguos de Francia.",
+    discoveredIn1971: "Descubierto en 1971",
+    historyTitle: "Un Descubrimiento Extraordinario",
+    historyParagraph1:
+      "La Caune de l'Arago, situada cerca del pueblo de Tautavel en los Pirineos Orientales, es uno de los yacimientos prehistóricos más importantes de Europa. Esta cueva fue ocupada por poblaciones humanas hace entre 700.000 y 100.000 años.",
+    historyParagraph2:
+      "En 1971, el equipo del Profesor Henry de Lumley hizo un descubrimiento extraordinario: un cráneo humano de 450.000 años de antigüedad, perteneciente a un Homo erectus europeo. Este descubrimiento revolucionó nuestra comprensión de la historia humana en Europa.",
+    historyParagraph3:
+      "Desde entonces, las excavaciones continuas han revelado más de 600.000 artefactos y 150 restos humanos, convirtiendo a Tautavel en uno de los yacimientos más ricos del mundo para el estudio de nuestros antepasados.",
+    keyFacts: "Datos Clave",
+    yearsOld: "Años de Antigüedad",
+    humanRemains: "Restos Humanos",
+    artifactsDiscovered: "Artefactos Descubiertos",
+    yearsOfResearch: "Años de Investigación",
+    tautavelManTitle: "El Hombre de Tautavel",
+    tautavelManParagraph1:
+      "El Hombre de Tautavel es el nombre dado a los restos humanos descubiertos en la cueva. Es uno de los europeos más antiguos conocidos, que vivió hace aproximadamente 450.000 años durante el Pleistoceno medio.",
+    tautavelManParagraph2:
+      "Estos cazadores-recolectores estaban perfectamente adaptados a su entorno. Fabricaban herramientas de piedra sofisticadas y cazaban grandes animales como caballos, bisontes y rinocerontes.",
+    tautavelManParagraph3:
+      "El estudio de sus restos y herramientas nos ayuda a comprender mejor la evolución humana, las migraciones prehistóricas y los estilos de vida de nuestros antepasados lejanos.",
+    ourMission: "Nuestra Misión",
+    missionParagraph1:
+      "El proyecto Tautavel Vector tiene como objetivo preservar digitalmente miles de dibujos arqueológicos creados a lo largo de 50 años de excavaciones. Estos dibujos representan un patrimonio científico invaluable.",
+    missionParagraph2:
+      "Gracias a las contribuciones de ciudadanos de todo el mundo, transformamos estos dibujos en archivos vectoriales de alta resolución, garantizando su preservación para las generaciones futuras y facilitando la investigación científica.",
+
+    joinCommunity: "Únete a 2.341 Colaboradores",
+    contributeTitle: "Cómo Contribuir",
+    contributeSubtitle:
+      "Participa en la preservación del patrimonio prehistórico digitalizando dibujos arqueológicos. No se requiere experiencia, solo tu curiosidad y unos minutos de tu tiempo.",
+    startNow: "Comenzar Ahora",
+    howItWorksTitle: "Cómo Funciona",
+    howItWorksSubtitle: "Cuatro pasos simples para contribuir a la ciencia",
+    step1Title: "Elige un Artefacto",
+    step1Description: "Explora nuestra colección y selecciona un dibujo arqueológico para vectorizar.",
+    step2Title: "Traza los Contornos",
+    step2Description: "Utiliza nuestras herramientas intuitivas para trazar los contornos y detalles del artefacto.",
+    step3Title: "Verifica y Anota",
+    step3Description: "Añade información sobre el tipo de artefacto, su estado y tus observaciones.",
+    step4Title: "Envía tu Trabajo",
+    step4Description: "Envía tu contribución para validación por nuestro equipo de expertos.",
+    whatIsVectorization: "¿Qué es la Vectorización?",
+    vectorizationParagraph1:
+      "La vectorización es el proceso de conversión de imágenes en gráficos vectoriales. A diferencia de las imágenes tradicionales compuestas de píxels, los gráficos vectoriales se definen mediante ecuaciones matemáticas.",
+    vectorizationParagraph2:
+      "Esto permite mantener una calidad perfecta a cualquier tamaño de visualización, esencial para la preservación a largo plazo de los documentos arqueológicos.",
+    vectorizationParagraph3:
+      "Tu trabajo de trazado crea archivos digitales duraderos que los investigadores podrán utilizar durante décadas.",
+    rewardsTitle: "Recompensas y Reconocimiento",
+    rewardsSubtitle: "Tu contribución es valorada a través de nuestro sistema de gamificación",
+    earnXPTitle: "Gana XP",
+    earnXPDescription: "Cada vectorización completada te aporta puntos de experiencia para avanzar.",
+    leaderboardTitle: "Clasificación",
+    leaderboardDescription: "Compara tus contribuciones con las de otros miembros de la comunidad.",
+    achievementsTitle: "Logros a Desbloquear",
+    achievementsDescription: "Desbloquea insignias y logros alcanzando objetivos de contribución.",
+    readyToStart: "¿Listo para Empezar?",
+    readyToStartSubtitle: "Únete a nuestra comunidad de colaboradores y ayuda a preservar la historia de la humanidad.",
+    createAccount: "Crear Cuenta",
   },
 }
 
