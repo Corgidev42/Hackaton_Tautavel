@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Mountain } from "lucide-react"
 import { caveSlices, type CaveSlice } from "@/lib/cave-data"
 import { cn } from "@/lib/utils"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 interface CaveVisualizationProps {
   selectedSlice: CaveSlice | null
@@ -13,15 +14,16 @@ interface CaveVisualizationProps {
 
 export function CaveVisualization({ selectedSlice, onSelectSlice }: CaveVisualizationProps) {
   const [hoveredSlice, setHoveredSlice] = useState<string | null>(null)
+  const { t } = useLanguage()
 
   return (
     <Card className="overflow-hidden">
       <CardHeader className="pb-2">
         <CardTitle className="flex items-center gap-2 font-serif text-lg md:text-xl">
           <Mountain className="h-4 w-4 text-catalan-red md:h-5 md:w-5" />
-          Cave Exploration
+          {t("caveExploration")}
         </CardTitle>
-        <p className="text-xs text-muted-foreground md:text-sm">Click on a stratum layer to explore artifacts</p>
+        <p className="text-xs text-muted-foreground md:text-sm">{t("clickOnStratum")}</p>
       </CardHeader>
       <CardContent className="p-0">
         <div
@@ -44,7 +46,7 @@ export function CaveVisualization({ selectedSlice, onSelectSlice }: CaveVisualiz
             <h3 className="text-catalan-red font-serif text-lg font-bold tracking-wide md:text-2xl">
               Caune de l&apos;Arago
             </h3>
-            <p className="text-stone-400 text-[10px] mt-0.5 md:text-sm md:mt-1">Stratigraphic Cross-Section</p>
+            <p className="text-stone-400 text-[10px] mt-0.5 md:text-sm md:mt-1">{t("stratigraphicCrossSection")}</p>
           </div>
 
           {/* Cave layers container with 3D transform */}
@@ -141,7 +143,7 @@ export function CaveVisualization({ selectedSlice, onSelectSlice }: CaveVisualiz
 
           {/* Depth indicator - hidden on mobile */}
           <div className="absolute right-2 top-16 bottom-4 w-px bg-gradient-to-b from-transparent via-stone-600 to-transparent hidden md:block md:right-4 md:top-24 md:bottom-8">
-            <div className="absolute top-0 -left-6 text-xs text-stone-500">Surface</div>
+            <div className="absolute top-0 -left-6 text-xs text-stone-500">{t("surface")}</div>
             <div className="absolute bottom-0 -left-6 text-xs text-stone-500">-11m</div>
           </div>
 
@@ -166,11 +168,11 @@ export function CaveVisualization({ selectedSlice, onSelectSlice }: CaveVisualiz
         <div className="flex items-center justify-center gap-4 py-2 border-t bg-muted/30 md:gap-6 md:py-3">
           <div className="flex items-center gap-1.5 text-[10px] md:gap-2 md:text-xs">
             <div className="h-2 w-2 rounded bg-catalan-gold md:h-3 md:w-3"></div>
-            <span className="text-muted-foreground">Progress</span>
+            <span className="text-muted-foreground">{t("progress")}</span>
           </div>
           <div className="flex items-center gap-1.5 text-[10px] md:gap-2 md:text-xs">
             <div className="h-2 w-2 rounded bg-catalan-red md:h-3 md:w-3"></div>
-            <span className="text-muted-foreground">Selected</span>
+            <span className="text-muted-foreground">{t("selected")}</span>
           </div>
         </div>
       </CardContent>

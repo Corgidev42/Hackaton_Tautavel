@@ -1,6 +1,7 @@
 "use client"
 
 import { DashboardArtifactCard } from "@/components/dashboard/dashboard-artifact-card"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 const allArtifacts = [
   {
@@ -110,6 +111,7 @@ const allArtifacts = [
 ]
 
 export function ArtifactDashboardGrid() {
+  const { t } = useLanguage()
   const completed = allArtifacts.filter((a) => a.status === "completed").length
   const inProgress = allArtifacts.filter((a) => a.status === "in-progress").length
   const notStarted = allArtifacts.filter((a) => a.status === "not-started").length
@@ -118,21 +120,27 @@ export function ArtifactDashboardGrid() {
     <div>
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="font-serif text-2xl font-bold md:text-3xl">Artifact Collection</h1>
-          <p className="mt-1 text-muted-foreground">Select an artifact to begin vectorization</p>
+          <h1 className="font-serif text-2xl font-bold md:text-3xl">{t("artifactCollection")}</h1>
+          <p className="mt-1 text-muted-foreground">{t("selectArtifact")}</p>
         </div>
         <div className="flex gap-4 text-sm">
           <div className="flex items-center gap-2">
             <div className="h-3 w-3 rounded-sm bg-catalan-red"></div>
-            <span>{completed} Completed</span>
+            <span>
+              {completed} {t("completed")}
+            </span>
           </div>
           <div className="flex items-center gap-2">
             <div className="h-3 w-3 rounded-sm bg-catalan-gold"></div>
-            <span>{inProgress} In Progress</span>
+            <span>
+              {inProgress} {t("inProgress")}
+            </span>
           </div>
           <div className="flex items-center gap-2">
             <div className="h-3 w-3 rounded-sm border border-border bg-muted"></div>
-            <span>{notStarted} Available</span>
+            <span>
+              {notStarted} {t("available")}
+            </span>
           </div>
         </div>
       </div>

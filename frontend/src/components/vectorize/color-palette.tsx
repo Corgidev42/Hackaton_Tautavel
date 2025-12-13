@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { Slider } from "@/components/ui/slider"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 interface ColorPaletteProps {
   selectedColor: string
@@ -10,25 +11,27 @@ interface ColorPaletteProps {
   onBrushWidthChange: (width: number) => void
 }
 
-const colors = [
-  { name: "Catalan Red", value: "#C8102E" },
-  { name: "Catalan Gold", value: "#FCDD09" },
-  { name: "Dark Brown", value: "#5D4037" },
-  { name: "Stone Gray", value: "#78909C" },
-  { name: "Bone White", value: "#EFEBE9" },
-  { name: "Earth", value: "#8D6E63" },
-  { name: "Forest", value: "#558B2F" },
-  { name: "Deep Blue", value: "#1565C0" },
-  { name: "Black", value: "#212121" },
-]
-
 export function ColorPalette({ selectedColor, onColorSelect, brushWidth, onBrushWidthChange }: ColorPaletteProps) {
+  const { t } = useLanguage()
+
+  const colors = [
+    { name: t("catalanRed"), value: "#C8102E" },
+    { name: t("catalanGold"), value: "#FCDD09" },
+    { name: t("darkBrown"), value: "#5D4037" },
+    { name: t("stoneGray"), value: "#78909C" },
+    { name: t("boneWhite"), value: "#EFEBE9" },
+    { name: t("earth"), value: "#8D6E63" },
+    { name: t("forest"), value: "#558B2F" },
+    { name: t("deepBlue"), value: "#1565C0" },
+    { name: t("black"), value: "#212121" },
+  ]
+
   return (
     <div className="rounded-xl border bg-card p-4">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         {/* Color selection */}
         <div className="flex-1">
-          <label className="mb-2 block text-sm font-medium">Stroke Color</label>
+          <label className="mb-2 block text-sm font-medium">{t("strokeColor")}</label>
           <div className="flex flex-wrap gap-2">
             {colors.map((color) => (
               <button
@@ -50,7 +53,7 @@ export function ColorPalette({ selectedColor, onColorSelect, brushWidth, onBrush
         {/* Brush width */}
         <div className="w-full sm:w-40">
           <label className="mb-2 block text-sm font-medium">
-            Brush Size: <span className="text-catalan-gold">{brushWidth}px</span>
+            {t("brushSize")}: <span className="text-catalan-gold">{brushWidth}px</span>
           </label>
           <Slider
             value={[brushWidth]}
@@ -64,7 +67,7 @@ export function ColorPalette({ selectedColor, onColorSelect, brushWidth, onBrush
 
         {/* Preview */}
         <div className="flex items-center gap-2">
-          <span className="text-sm text-muted-foreground">Preview:</span>
+          <span className="text-sm text-muted-foreground">{t("preview")}:</span>
           <div
             className="rounded-full"
             style={{

@@ -9,6 +9,7 @@ import { ArtifactForm } from "@/components/vectorize/artifact-form"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Undo2, Redo2, Trash2, Save, Send } from "lucide-react"
 import Link from "next/link"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 interface User {
   email: string
@@ -37,6 +38,7 @@ export default function VectorizePage() {
   const [paths, setPaths] = useState<Path[]>([])
   const [redoStack, setRedoStack] = useState<Path[]>([])
   const [isSaved, setIsSaved] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const storedUser = sessionStorage.getItem("tautavel-user")
@@ -114,8 +116,10 @@ export default function VectorizePage() {
               </Button>
             </Link>
             <div>
-              <h1 className="font-serif text-xl font-bold md:text-2xl">Vectorize Artifact #{id}</h1>
-              <p className="text-sm text-muted-foreground">Trace the outlines and features</p>
+              <h1 className="font-serif text-xl font-bold md:text-2xl">
+                {t("vectorizeArtifact")} #{id}
+              </h1>
+              <p className="text-sm text-muted-foreground">{t("traceOutlines")}</p>
             </div>
           </div>
 
@@ -123,15 +127,15 @@ export default function VectorizePage() {
           <div className="flex flex-wrap gap-2">
             <Button variant="outline" size="sm" onClick={handleUndo} disabled={paths.length === 0}>
               <Undo2 className="mr-1.5 h-4 w-4" />
-              <span className="hidden sm:inline">Undo</span>
+              <span className="hidden sm:inline">{t("undo")}</span>
             </Button>
             <Button variant="outline" size="sm" onClick={handleRedo} disabled={redoStack.length === 0}>
               <Redo2 className="mr-1.5 h-4 w-4" />
-              <span className="hidden sm:inline">Redo</span>
+              <span className="hidden sm:inline">{t("redo")}</span>
             </Button>
             <Button variant="outline" size="sm" onClick={handleClear} disabled={paths.length === 0}>
               <Trash2 className="mr-1.5 h-4 w-4" />
-              <span className="hidden sm:inline">Clear</span>
+              <span className="hidden sm:inline">{t("clear")}</span>
             </Button>
           </div>
         </div>
@@ -162,12 +166,12 @@ export default function VectorizePage() {
 
             {/* Submit actions */}
             <div className="rounded-xl border bg-card p-4">
-              <h3 className="mb-3 font-semibold">Submit Work</h3>
+              <h3 className="mb-3 font-semibold">{t("submitWork")}</h3>
               <div className="flex flex-col gap-2">
                 <Button variant="outline" className="w-full justify-start bg-transparent" onClick={handleSave}>
                   <Save className="mr-2 h-4 w-4" />
-                  Save Draft
-                  {isSaved && <span className="ml-auto text-xs text-green-600">Saved!</span>}
+                  {t("saveDraft")}
+                  {isSaved && <span className="ml-auto text-xs text-green-600">{t("saved")}</span>}
                 </Button>
                 <Button
                   className="w-full justify-start bg-catalan-red hover:bg-catalan-red-dark text-white"
@@ -175,11 +179,12 @@ export default function VectorizePage() {
                   disabled={paths.length === 0}
                 >
                   <Send className="mr-2 h-4 w-4" />
-                  Submit Vectorization
+                  {t("submitVectorization")}
                 </Button>
               </div>
               <p className="mt-3 text-xs text-muted-foreground">
-                Earn <span className="font-semibold text-catalan-gold">+50 XP</span> for each completed vectorization
+                {t("earnXP")} <span className="font-semibold text-catalan-gold">+50 XP</span>{" "}
+                {t("forEachVectorization")}
               </p>
             </div>
           </div>

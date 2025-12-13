@@ -13,6 +13,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { LogOut, Settings, User, LayoutDashboard, Menu, X } from "lucide-react"
+import { LanguageSwitcher } from "@/components/language-switcher"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 interface DashboardHeaderProps {
   user: {
@@ -25,6 +27,7 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
   const router = useRouter()
   const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { t } = useLanguage()
 
   const handleLogout = () => {
     sessionStorage.removeItem("tautavel-user")
@@ -40,7 +43,7 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
           </div>
           <div className="flex flex-col">
             <span className="text-sm font-semibold tracking-tight md:text-lg">Tautavel Vector</span>
-            <span className="hidden text-xs text-muted-foreground sm:block">Citizen Science Project</span>
+            <span className="hidden text-xs text-muted-foreground sm:block">{t("citizenScienceProject")}</span>
           </div>
         </Link>
 
@@ -52,7 +55,7 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
               pathname === "/dashboard" ? "text-catalan-red" : "text-muted-foreground"
             }`}
           >
-            Dashboard
+            {t("dashboard")}
           </Link>
           <Link
             href="/profile"
@@ -60,11 +63,12 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
               pathname === "/profile" ? "text-catalan-red" : "text-muted-foreground"
             }`}
           >
-            Profile
+            {t("profile")}
           </Link>
         </nav>
 
         <div className="flex items-center gap-2 md:gap-4">
+          <LanguageSwitcher />
           <div className="hidden text-right lg:block">
             <div className="text-sm font-medium">{user.name}</div>
             <div className="text-xs text-muted-foreground">{user.email}</div>
@@ -91,23 +95,23 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
               <DropdownMenuItem asChild>
                 <Link href="/dashboard">
                   <LayoutDashboard className="mr-2 h-4 w-4" />
-                  <span>Dashboard</span>
+                  <span>{t("dashboard")}</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/profile">
                   <User className="mr-2 h-4 w-4" />
-                  <span>Profile</span>
+                  <span>{t("profile")}</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Settings className="mr-2 h-4 w-4" />
-                <span>Settings</span>
+                <span>{t("settings")}</span>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={handleLogout} className="text-catalan-red focus:text-catalan-red">
                 <LogOut className="mr-2 h-4 w-4" />
-                <span>Log out</span>
+                <span>{t("logOut")}</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -136,7 +140,7 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <LayoutDashboard className="mr-2 inline h-4 w-4" />
-              Dashboard
+              {t("dashboard")}
             </Link>
             <Link
               href="/profile"
@@ -146,7 +150,7 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <User className="mr-2 inline h-4 w-4" />
-              Profile
+              {t("profile")}
             </Link>
           </nav>
         </div>

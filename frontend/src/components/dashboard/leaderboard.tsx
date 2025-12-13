@@ -1,6 +1,9 @@
+"use client"
+
 import { Trophy, Medal, Award } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 const contributors = [
   { rank: 1, name: "Marie Dupont", contributions: 1247, country: "France" },
@@ -30,12 +33,14 @@ function getRankBackground(rank: number) {
 }
 
 export function Leaderboard() {
+  const { t } = useLanguage()
+
   return (
     <Card className="lg:sticky lg:top-24">
       <CardHeader className="pb-2 md:pb-3">
         <CardTitle className="flex items-center gap-2 font-serif text-lg md:text-xl">
           <Trophy className="h-4 w-4 text-catalan-gold md:h-5 md:w-5" />
-          Top Contributors
+          {t("topContributors")}
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-1.5 md:space-y-2">
@@ -63,12 +68,12 @@ export function Leaderboard() {
               <div className="text-xs font-semibold text-catalan-red md:text-sm">
                 {contributor.contributions.toLocaleString()}
               </div>
-              <div className="hidden text-xs text-muted-foreground sm:block">vectors</div>
+              <div className="hidden text-xs text-muted-foreground sm:block">{t("vectors")}</div>
             </div>
           </div>
         ))}
         {/* Mobile "see more" indicator */}
-        <p className="text-center text-xs text-muted-foreground pt-1 lg:hidden">+ 5 more contributors</p>
+        <p className="text-center text-xs text-muted-foreground pt-1 lg:hidden">{t("moreContributors")}</p>
       </CardContent>
     </Card>
   )

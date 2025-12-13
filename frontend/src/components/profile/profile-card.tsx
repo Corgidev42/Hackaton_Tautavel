@@ -7,6 +7,8 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Sparkles, Target, Flame, Award, TrendingUp, Calendar } from "lucide-react"
+import { useLanguage } from "@/lib/i18n/language-context"
+import type { TranslationKey } from "@/lib/i18n/translations"
 
 interface ProfileCardProps {
   user: {
@@ -33,15 +35,18 @@ function calculateXP(vectors: number, streak: number, accuracy: number): number 
   return baseXP + streakBonus + accuracyBonus
 }
 
-function getLevel(xp: number): { level: number; title: string; currentXP: number; nextLevelXP: number } {
+function getLevel(
+  xp: number,
+  t: (key: TranslationKey) => string,
+): { level: number; title: string; currentXP: number; nextLevelXP: number } {
   const levels = [
-    { threshold: 0, title: "Novice Explorer" },
-    { threshold: 500, title: "Cave Apprentice" },
-    { threshold: 1500, title: "Artifact Seeker" },
-    { threshold: 3500, title: "Vector Specialist" },
-    { threshold: 7000, title: "Site Guardian" },
-    { threshold: 12000, title: "Master Archaeologist" },
-    { threshold: 20000, title: "Tautavel Legend" },
+    { threshold: 0, title: t("noviceExplorer") },
+    { threshold: 500, title: t("caveApprentice") },
+    { threshold: 1500, title: t("artifactSeeker") },
+    { threshold: 3500, title: t("vectorSpecialist") },
+    { threshold: 7000, title: t("siteGuardian") },
+    { threshold: 12000, title: t("masterArchaeologist") },
+    { threshold: 20000, title: t("tautavelLegend") },
   ]
 
   let currentLevel = 0
@@ -71,9 +76,17 @@ function getLevelColor(level: number): string {
 }
 
 export function ProfileCard({ user }: ProfileCardProps) {
+  const { t, language } = useLanguage()
   const xp = calculateXP(userStats.totalVectors, userStats.streak, userStats.accuracy)
-  const levelInfo = getLevel(xp)
+  const levelInfo = getLevel(xp, t)
   const progressPercent = (levelInfo.currentXP / levelInfo.nextLevelXP) * 100
+
+  const dateLocales: Record<string, string> = {
+    fr: "fr-FR",
+    en: "en-US",
+    ca: "ca-ES",
+    es: "es-ES",
+  }
 
   return (
     <Card className="overflow-hidden">
@@ -110,7 +123,7 @@ export function ProfileCard({ user }: ProfileCardProps) {
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-2">
               <Badge className={`${getLevelColor(levelInfo.level)} text-xs font-semibold`}>
-                Level {levelInfo.level}
+                {t("level")} {levelInfo.level}
               </Badge>
               <span className="font-serif text-sm md:text-lg">{levelInfo.title}</span>
             </div>
@@ -127,7 +140,7 @@ export function ProfileCard({ user }: ProfileCardProps) {
             </div>
             <Progress value={progressPercent} className="h-2 bg-muted md:h-3" />
             <p className="text-[10px] text-center text-muted-foreground md:text-xs">
-              {(levelInfo.nextLevelXP - levelInfo.currentXP).toLocaleString()} XP to next level
+              {(levelInfo.nextLevelXP - levelInfo.currentXP).toLocaleString()} {t("xpToNextLevel")}
             </p>
           </div>
         </div>
@@ -136,22 +149,22 @@ export function ProfileCard({ user }: ProfileCardProps) {
         <div className="grid grid-cols-2 gap-2 md:gap-3">
           <StatCard
             icon={<Target className="h-4 w-4 text-catalan-red md:h-5 md:w-5" />}
-            label="Vectors"
+            label={t("vectors")}
             value={userStats.totalVectors.toLocaleString()}
           />
           <StatCard
             icon={<TrendingUp className="h-4 w-4 text-catalan-gold md:h-5 md:w-5" />}
-            label="Rank"
+            label={t("rank")}
             value={`#${userStats.rank}`}
           />
           <StatCard
             icon={<Flame className="h-4 w-4 text-orange-500 md:h-5 md:w-5" />}
-            label="Streak"
+            label={t("streak")}
             value={`${userStats.streak}d`}
           />
           <StatCard
             icon={<Award className="h-4 w-4 text-emerald-500 md:h-5 md:w-5" />}
-            label="Accuracy"
+            label={t("accuracy")}
             value={`${userStats.accuracy}%`}
           />
         </div>
@@ -160,13 +173,13 @@ export function ProfileCard({ user }: ProfileCardProps) {
         <div className="space-y-2">
           <h3 className="font-semibold text-xs flex items-center gap-2 md:text-sm">
             <Award className="h-3 w-3 text-catalan-gold md:h-4 md:w-4" />
-            Recent Achievements
+            {t("recentAchievements")}
           </h3>
           <div className="flex flex-wrap gap-1.5 md:gap-2">
-            <AchievementBadge title="First Vector" icon="🎯" unlocked />
-            <AchievementBadge title="Week Warrior" icon="⚔️" unlocked />
-            <AchievementBadge title="Century Club" icon="💯" unlocked />
-            <AchievementBadge title="Perfectionist" icon="✨" unlocked={false} />
+            <AchievementBadge title={t("firstVector")} icon="🎯" unlocked />
+            <AchievementBadge title={t("weekWarrior")} icon="⚔️" unlocked />
+            <AchievementBadge title={t("centuryClub")} icon="💯" unlocked />
+            <AchievementBadge title={t("perfectionist")} icon="✨" unlocked={false} />
           </div>
         </div>
 
@@ -174,8 +187,8 @@ export function ProfileCard({ user }: ProfileCardProps) {
         <div className="flex items-center gap-2 text-xs text-muted-foreground pt-2 border-t md:text-sm">
           <Calendar className="h-3 w-3 md:h-4 md:w-4" />
           <span>
-            Member since{" "}
-            {new Date(userStats.joinedDate).toLocaleDateString("en-US", {
+            {t("memberSince")}{" "}
+            {new Date(userStats.joinedDate).toLocaleDateString(dateLocales[language] || "fr-FR", {
               month: "long",
               year: "numeric",
             })}

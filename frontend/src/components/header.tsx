@@ -4,11 +4,14 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import { LoginModal } from "@/components/login-modal"
+import { LanguageSwitcher } from "@/components/language-switcher"
 import { Menu, X } from "lucide-react"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 export function Header() {
   const [isLoginOpen, setIsLoginOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { t } = useLanguage()
 
   return (
     <>
@@ -20,7 +23,7 @@ export function Header() {
             </div>
             <div className="flex flex-col">
               <span className="text-sm font-semibold tracking-tight md:text-lg">Tautavel Vector</span>
-              <span className="hidden text-xs text-muted-foreground sm:block">Citizen Science Project</span>
+              <span className="hidden text-xs text-muted-foreground sm:block">{t("citizenScienceProject")}</span>
             </div>
           </Link>
 
@@ -30,48 +33,47 @@ export function Header() {
               href="#artifacts"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
-              Artifacts
+              {t("artifacts")}
             </Link>
             <Link
               href="#about"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
-              About
+              {t("about")}
             </Link>
             <Link
               href="#contribute"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
-              How to Contribute
+              {t("howToContribute")}
             </Link>
           </nav>
 
           {/* Desktop buttons */}
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-2 md:flex">
+            <LanguageSwitcher />
             <Button
               variant="outline"
               className="border-catalan-red text-catalan-red hover:bg-catalan-red hover:text-white bg-transparent"
               onClick={() => setIsLoginOpen(true)}
             >
-              Sign In
+              {t("signIn")}
             </Button>
             <Button
               className="bg-catalan-red hover:bg-catalan-red-dark text-white"
               onClick={() => setIsLoginOpen(true)}
             >
-              Join Project
+              {t("joinProject")}
             </Button>
           </div>
 
           {/* Mobile menu button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+          <div className="flex items-center gap-2 md:hidden">
+            <LanguageSwitcher />
+            <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile menu */}
@@ -83,21 +85,21 @@ export function Header() {
                 className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Artifacts
+                {t("artifacts")}
               </Link>
               <Link
                 href="#about"
                 className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                About
+                {t("about")}
               </Link>
               <Link
                 href="#contribute"
                 className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                How to Contribute
+                {t("howToContribute")}
               </Link>
               <div className="mt-3 flex flex-col gap-2 border-t border-border pt-3">
                 <Button
@@ -108,7 +110,7 @@ export function Header() {
                     setIsLoginOpen(true)
                   }}
                 >
-                  Sign In
+                  {t("signIn")}
                 </Button>
                 <Button
                   className="w-full bg-catalan-red hover:bg-catalan-red-dark text-white"
@@ -117,7 +119,7 @@ export function Header() {
                     setIsLoginOpen(true)
                   }}
                 >
-                  Join Project
+                  {t("joinProject")}
                 </Button>
               </div>
             </nav>

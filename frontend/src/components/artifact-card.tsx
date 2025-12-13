@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { Check, Clock, Loader2 } from "lucide-react"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 interface ArtifactCardProps {
   id: number
@@ -12,6 +13,8 @@ interface ArtifactCardProps {
 }
 
 export function ArtifactCard({ status, title, category, progress }: ArtifactCardProps) {
+  const { t } = useLanguage()
+
   return (
     <div
       className={cn(
@@ -64,7 +67,9 @@ export function ArtifactCard({ status, title, category, progress }: ArtifactCard
             <span className="text-xs font-medium text-foreground">{title}</span>
             {category && <span className="mt-1 text-xs text-muted-foreground">{category}</span>}
             {status === "in-progress" && (
-              <span className="mt-2 text-xs font-semibold text-catalan-gold">{progress}% complete</span>
+              <span className="mt-2 text-xs font-semibold text-catalan-gold">
+                {progress}% {t("complete")}
+              </span>
             )}
           </div>
         </>
