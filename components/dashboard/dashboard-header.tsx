@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useRouter, usePathname } from "next/navigation"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {
@@ -11,7 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { LogOut, Settings, User, LayoutDashboard } from "lucide-react"
+import { LogOut, Settings, User, LayoutDashboard, Menu, X } from "lucide-react"
 
 interface DashboardHeaderProps {
   user: {
@@ -23,6 +24,7 @@ interface DashboardHeaderProps {
 export function DashboardHeader({ user }: DashboardHeaderProps) {
   const router = useRouter()
   const pathname = usePathname()
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const handleLogout = () => {
     sessionStorage.removeItem("tautavel-user")
@@ -31,17 +33,18 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded bg-catalan-red">
-            <span className="font-serif text-lg font-bold text-white">T</span>
+      <div className="container mx-auto flex h-14 items-center justify-between px-4 md:h-16">
+        <Link href="/" className="flex items-center gap-2 md:gap-3">
+          <div className="flex h-8 w-8 items-center justify-center rounded bg-catalan-red md:h-9 md:w-9">
+            <span className="font-serif text-base font-bold text-white md:text-lg">T</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-lg font-semibold tracking-tight">Tautavel Vector</span>
-            <span className="text-xs text-muted-foreground">Citizen Science Project</span>
+            <span className="text-sm font-semibold tracking-tight md:text-lg">Tautavel Vector</span>
+            <span className="hidden text-xs text-muted-foreground sm:block">Citizen Science Project</span>
           </div>
         </Link>
 
+        {/* Desktop nav */}
         <nav className="hidden items-center gap-6 md:flex">
           <Link
             href="/dashboard"
@@ -60,19 +63,18 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
             Profile
           </Link>
         </nav>
-        {/* End navigation */}
 
-        <div className="flex items-center gap-4">
-          <div className="hidden text-right sm:block">
+        <div className="flex items-center gap-2 md:gap-4">
+          <div className="hidden text-right lg:block">
             <div className="text-sm font-medium">{user.name}</div>
             <div className="text-xs text-muted-foreground">{user.email}</div>
           </div>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative h-10 w-10 rounded-full">
-                <Avatar className="h-10 w-10 border-2 border-catalan-gold">
-                  <AvatarFallback className="bg-catalan-red text-white font-semibold">
+              <Button variant="ghost" className="relative h-8 w-8 rounded-full md:h-10 md:w-10">
+                <Avatar className="h-8 w-8 border-2 border-catalan-gold md:h-10 md:w-10">
+                  <AvatarFallback className="bg-catalan-red text-white text-sm font-semibold md:text-base">
                     {user.name.charAt(0).toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
@@ -109,8 +111,46 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 md:hidden"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </Button>
         </div>
       </div>
+
+      {isMobileMenuOpen && (
+        <div className="border-t border-border bg-background px-4 py-3 md:hidden">
+          <nav className="flex flex-col gap-2">
+            <Link
+              href="/dashboard"
+              className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                pathname === "/dashboard"
+                  ? "bg-catalan-red/10 text-catalan-red"
+                  : "text-muted-foreground hover:bg-muted"
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <LayoutDashboard className="mr-2 inline h-4 w-4" />
+              Dashboard
+            </Link>
+            <Link
+              href="/profile"
+              className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                pathname === "/profile" ? "bg-catalan-red/10 text-catalan-red" : "text-muted-foreground hover:bg-muted"
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <User className="mr-2 inline h-4 w-4" />
+              Profile
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   )
 }

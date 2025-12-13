@@ -17,18 +17,15 @@ export function CaveVisualization({ selectedSlice, onSelectSlice }: CaveVisualiz
   return (
     <Card className="overflow-hidden">
       <CardHeader className="pb-2">
-        <CardTitle className="flex items-center gap-2 font-serif text-xl">
-          <Mountain className="h-5 w-5 text-catalan-red" />
+        <CardTitle className="flex items-center gap-2 font-serif text-lg md:text-xl">
+          <Mountain className="h-4 w-4 text-catalan-red md:h-5 md:w-5" />
           Cave Exploration
         </CardTitle>
-        <p className="text-sm text-muted-foreground">
-          Click on a stratum layer to explore artifacts found at that depth
-        </p>
+        <p className="text-xs text-muted-foreground md:text-sm">Click on a stratum layer to explore artifacts</p>
       </CardHeader>
       <CardContent className="p-0">
-        {/* Fake 3D cave visualization with CSS transforms and parallax */}
         <div
-          className="relative h-[500px] w-full overflow-hidden"
+          className="relative h-[350px] w-full overflow-hidden md:h-[500px]"
           style={{
             perspective: "1000px",
             background: "linear-gradient(180deg, #1a0f0a 0%, #2a1810 30%, #3d2317 70%, #4a2c1c 100%)",
@@ -43,14 +40,16 @@ export function CaveVisualization({ selectedSlice, onSelectSlice }: CaveVisualiz
           />
 
           {/* Title */}
-          <div className="absolute top-4 left-0 right-0 text-center z-10">
-            <h3 className="text-catalan-red font-serif text-2xl font-bold tracking-wide">Caune de l'Arago</h3>
-            <p className="text-stone-400 text-sm mt-1">Stratigraphic Cross-Section</p>
+          <div className="absolute top-2 left-0 right-0 text-center z-10 md:top-4">
+            <h3 className="text-catalan-red font-serif text-lg font-bold tracking-wide md:text-2xl">
+              Caune de l&apos;Arago
+            </h3>
+            <p className="text-stone-400 text-[10px] mt-0.5 md:text-sm md:mt-1">Stratigraphic Cross-Section</p>
           </div>
 
           {/* Cave layers container with 3D transform */}
           <div
-            className="absolute inset-0 top-20 flex flex-col items-center justify-center gap-2 px-8"
+            className="absolute inset-0 top-14 flex flex-col items-center justify-center gap-1.5 px-4 md:top-20 md:gap-2 md:px-8"
             style={{
               transformStyle: "preserve-3d",
               transform: "rotateX(15deg)",
@@ -63,7 +62,6 @@ export function CaveVisualization({ selectedSlice, onSelectSlice }: CaveVisualiz
               const isSelected = selectedSlice?.id === slice.id
               const isHovered = hoveredSlice === slice.id
 
-              // Depth-based styling for parallax effect
               const depth = index * 15
               const scale = 1 - index * 0.03
 
@@ -74,7 +72,7 @@ export function CaveVisualization({ selectedSlice, onSelectSlice }: CaveVisualiz
                   onMouseEnter={() => setHoveredSlice(slice.id)}
                   onMouseLeave={() => setHoveredSlice(null)}
                   className={cn(
-                    "relative w-full max-w-xl h-16 rounded-lg transition-all duration-300 ease-out cursor-pointer group",
+                    "relative w-full max-w-xl h-12 rounded-lg transition-all duration-300 ease-out cursor-pointer group md:h-16",
                     "border-2 shadow-lg",
                     isSelected
                       ? "border-catalan-red shadow-catalan-red/30 scale-105 z-10"
@@ -101,7 +99,7 @@ export function CaveVisualization({ selectedSlice, onSelectSlice }: CaveVisualiz
                   />
 
                   {/* Progress bar */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-black/30 rounded-b-lg overflow-hidden">
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/30 rounded-b-lg overflow-hidden md:h-1.5">
                     <div
                       className="h-full bg-catalan-gold transition-all duration-500"
                       style={{
@@ -111,56 +109,45 @@ export function CaveVisualization({ selectedSlice, onSelectSlice }: CaveVisualiz
                     />
                   </div>
 
-                  {/* Layer info */}
-                  <div className="absolute inset-0 flex items-center justify-between px-4 text-white">
+                  {/* Layer info - simplified on mobile */}
+                  <div className="absolute inset-0 flex items-center justify-between px-3 text-white md:px-4">
                     <div className="flex flex-col items-start">
                       <span
                         className={cn(
-                          "font-bold text-sm transition-colors",
+                          "font-bold text-xs transition-colors md:text-sm",
                           (isSelected || isHovered) && "text-catalan-gold",
                         )}
                       >
                         {slice.name}
                       </span>
-                      <span className="text-xs text-white/70">{slice.period}</span>
+                      <span className="text-[10px] text-white/70 md:text-xs">{slice.period}</span>
                     </div>
                     <div className="flex flex-col items-end">
-                      <span className="text-xs text-white/80 font-mono">{slice.depth}</span>
-                      <span className="text-xs text-white/60">
-                        {completedCount}/{totalCount} artifacts
+                      <span className="text-[10px] text-white/80 font-mono md:text-xs">{slice.depth}</span>
+                      <span className="text-[10px] text-white/60 hidden sm:block">
+                        {completedCount}/{totalCount}
                       </span>
                     </div>
                   </div>
 
-                  {/* Hover glow effect */}
-                  <div
-                    className={cn(
-                      "absolute inset-0 rounded-lg transition-opacity duration-300 pointer-events-none",
-                      isHovered && !isSelected ? "opacity-100" : "opacity-0",
-                    )}
-                    style={{
-                      background: "linear-gradient(90deg, transparent, rgba(252, 221, 9, 0.1), transparent)",
-                    }}
-                  />
-
                   {/* Selection indicator */}
                   {isSelected && (
-                    <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-1 h-8 bg-catalan-red rounded-full animate-pulse" />
+                    <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-0.5 h-6 bg-catalan-red rounded-full animate-pulse md:-right-2 md:w-1 md:h-8" />
                   )}
                 </button>
               )
             })}
           </div>
 
-          {/* Depth indicator on the side */}
-          <div className="absolute right-4 top-24 bottom-8 w-px bg-gradient-to-b from-transparent via-stone-600 to-transparent">
+          {/* Depth indicator - hidden on mobile */}
+          <div className="absolute right-2 top-16 bottom-4 w-px bg-gradient-to-b from-transparent via-stone-600 to-transparent hidden md:block md:right-4 md:top-24 md:bottom-8">
             <div className="absolute top-0 -left-6 text-xs text-stone-500">Surface</div>
             <div className="absolute bottom-0 -left-6 text-xs text-stone-500">-11m</div>
           </div>
 
-          {/* Floating particles for atmosphere */}
+          {/* Floating particles - fewer on mobile */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {[...Array(12)].map((_, i) => (
+            {[...Array(6)].map((_, i) => (
               <div
                 key={i}
                 className="absolute w-1 h-1 bg-catalan-gold/30 rounded-full animate-float"
@@ -175,15 +162,15 @@ export function CaveVisualization({ selectedSlice, onSelectSlice }: CaveVisualiz
           </div>
         </div>
 
-        {/* Legend */}
-        <div className="flex items-center justify-center gap-6 py-3 border-t bg-muted/30">
-          <div className="flex items-center gap-2 text-xs">
-            <div className="h-3 w-3 rounded bg-catalan-gold"></div>
-            <span className="text-muted-foreground">Vectorization Progress</span>
+        {/* Legend - simplified on mobile */}
+        <div className="flex items-center justify-center gap-4 py-2 border-t bg-muted/30 md:gap-6 md:py-3">
+          <div className="flex items-center gap-1.5 text-[10px] md:gap-2 md:text-xs">
+            <div className="h-2 w-2 rounded bg-catalan-gold md:h-3 md:w-3"></div>
+            <span className="text-muted-foreground">Progress</span>
           </div>
-          <div className="flex items-center gap-2 text-xs">
-            <div className="h-3 w-3 rounded bg-catalan-red"></div>
-            <span className="text-muted-foreground">Selected Layer</span>
+          <div className="flex items-center gap-1.5 text-[10px] md:gap-2 md:text-xs">
+            <div className="h-2 w-2 rounded bg-catalan-red md:h-3 md:w-3"></div>
+            <span className="text-muted-foreground">Selected</span>
           </div>
         </div>
       </CardContent>

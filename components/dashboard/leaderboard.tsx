@@ -16,10 +16,10 @@ const contributors = [
 ]
 
 function getRankIcon(rank: number) {
-  if (rank === 1) return <Trophy className="h-5 w-5 text-catalan-gold" />
-  if (rank === 2) return <Medal className="h-5 w-5 text-gray-400" />
-  if (rank === 3) return <Award className="h-5 w-5 text-amber-600" />
-  return <span className="text-sm font-medium text-muted-foreground w-5 text-center">{rank}</span>
+  if (rank === 1) return <Trophy className="h-4 w-4 text-catalan-gold md:h-5 md:w-5" />
+  if (rank === 2) return <Medal className="h-4 w-4 text-gray-400 md:h-5 md:w-5" />
+  if (rank === 3) return <Award className="h-4 w-4 text-amber-600 md:h-5 md:w-5" />
+  return <span className="text-xs font-medium text-muted-foreground w-4 text-center md:w-5 md:text-sm">{rank}</span>
 }
 
 function getRankBackground(rank: number) {
@@ -31,22 +31,24 @@ function getRankBackground(rank: number) {
 
 export function Leaderboard() {
   return (
-    <Card className="sticky top-24">
-      <CardHeader className="pb-3">
-        <CardTitle className="flex items-center gap-2 font-serif text-xl">
-          <Trophy className="h-5 w-5 text-catalan-gold" />
+    <Card className="lg:sticky lg:top-24">
+      <CardHeader className="pb-2 md:pb-3">
+        <CardTitle className="flex items-center gap-2 font-serif text-lg md:text-xl">
+          <Trophy className="h-4 w-4 text-catalan-gold md:h-5 md:w-5" />
           Top Contributors
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-2">
-        {contributors.map((contributor) => (
+      <CardContent className="space-y-1.5 md:space-y-2">
+        {contributors.map((contributor, index) => (
           <div
             key={contributor.rank}
-            className={`flex items-center gap-3 rounded-lg border p-2.5 transition-colors hover:bg-muted/50 ${getRankBackground(contributor.rank)}`}
+            className={`flex items-center gap-2 rounded-lg border p-2 transition-colors hover:bg-muted/50 md:gap-3 md:p-2.5 ${getRankBackground(contributor.rank)} ${index >= 5 ? "hidden lg:flex" : ""}`}
           >
-            <div className="flex h-8 w-8 items-center justify-center">{getRankIcon(contributor.rank)}</div>
-            <Avatar className="h-8 w-8">
-              <AvatarFallback className="bg-catalan-red/10 text-catalan-red text-xs font-medium">
+            <div className="flex h-6 w-6 items-center justify-center md:h-8 md:w-8">
+              {getRankIcon(contributor.rank)}
+            </div>
+            <Avatar className="h-6 w-6 md:h-8 md:w-8">
+              <AvatarFallback className="bg-catalan-red/10 text-catalan-red text-[10px] font-medium md:text-xs">
                 {contributor.name
                   .split(" ")
                   .map((n) => n[0])
@@ -54,15 +56,19 @@ export function Leaderboard() {
               </AvatarFallback>
             </Avatar>
             <div className="flex-1 min-w-0">
-              <div className="truncate text-sm font-medium">{contributor.name}</div>
-              <div className="text-xs text-muted-foreground">{contributor.country}</div>
+              <div className="truncate text-xs font-medium md:text-sm">{contributor.name}</div>
+              <div className="hidden text-xs text-muted-foreground sm:block">{contributor.country}</div>
             </div>
             <div className="text-right">
-              <div className="text-sm font-semibold text-catalan-red">{contributor.contributions.toLocaleString()}</div>
-              <div className="text-xs text-muted-foreground">vectors</div>
+              <div className="text-xs font-semibold text-catalan-red md:text-sm">
+                {contributor.contributions.toLocaleString()}
+              </div>
+              <div className="hidden text-xs text-muted-foreground sm:block">vectors</div>
             </div>
           </div>
         ))}
+        {/* Mobile "see more" indicator */}
+        <p className="text-center text-xs text-muted-foreground pt-1 lg:hidden">+ 5 more contributors</p>
       </CardContent>
     </Card>
   )

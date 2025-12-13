@@ -78,77 +78,79 @@ export function ProfileCard({ user }: ProfileCardProps) {
   return (
     <Card className="overflow-hidden">
       {/* Header with gradient */}
-      <div className="h-24 bg-gradient-to-br from-catalan-red to-catalan-red-dark relative">
+      <div className="h-16 bg-gradient-to-br from-catalan-red to-catalan-red-dark relative md:h-24">
         <div className="absolute inset-0 opacity-20">
           {/* Catalan stripes pattern */}
           <div className="h-full flex flex-col justify-evenly">
             {[...Array(4)].map((_, i) => (
-              <div key={i} className="h-3 bg-catalan-gold"></div>
+              <div key={i} className="h-2 bg-catalan-gold md:h-3"></div>
             ))}
           </div>
         </div>
       </div>
 
-      <CardHeader className="relative pt-0 pb-4">
+      <CardHeader className="relative pt-0 pb-3 md:pb-4">
         {/* Avatar overlapping the header */}
-        <div className="flex items-end gap-4 -mt-12">
-          <Avatar className="h-24 w-24 border-4 border-background shadow-lg">
-            <AvatarFallback className="bg-catalan-gold text-catalan-gold-dark text-3xl font-bold">
+        <div className="flex items-end gap-3 -mt-8 md:-mt-12 md:gap-4">
+          <Avatar className="h-16 w-16 border-4 border-background shadow-lg md:h-24 md:w-24">
+            <AvatarFallback className="bg-catalan-gold text-catalan-gold-dark text-xl font-bold md:text-3xl">
               {user.name.charAt(0).toUpperCase()}
             </AvatarFallback>
           </Avatar>
-          <div className="pb-2">
-            <h2 className="text-2xl font-semibold">{user.name}</h2>
-            <p className="text-sm text-muted-foreground">{user.email}</p>
+          <div className="pb-1 md:pb-2">
+            <h2 className="text-lg font-semibold md:text-2xl">{user.name}</h2>
+            <p className="text-xs text-muted-foreground md:text-sm">{user.email}</p>
           </div>
         </div>
       </CardHeader>
 
-      <CardContent className="space-y-6">
+      <CardContent className="space-y-4 md:space-y-6">
         {/* Level and XP */}
-        <div className="space-y-3">
-          <div className="flex items-center justify-between">
+        <div className="space-y-2 md:space-y-3">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-2">
-              <Badge className={`${getLevelColor(levelInfo.level)} font-semibold`}>Level {levelInfo.level}</Badge>
-              <span className="font-serif text-lg">{levelInfo.title}</span>
+              <Badge className={`${getLevelColor(levelInfo.level)} text-xs font-semibold`}>
+                Level {levelInfo.level}
+              </Badge>
+              <span className="font-serif text-sm md:text-lg">{levelInfo.title}</span>
             </div>
             <div className="flex items-center gap-1 text-catalan-gold">
-              <Sparkles className="h-4 w-4" />
-              <span className="font-bold">{xp.toLocaleString()} XP</span>
+              <Sparkles className="h-3 w-3 md:h-4 md:w-4" />
+              <span className="text-sm font-bold md:text-base">{xp.toLocaleString()} XP</span>
             </div>
           </div>
 
           <div className="space-y-1">
-            <div className="flex justify-between text-xs text-muted-foreground">
+            <div className="flex justify-between text-[10px] text-muted-foreground md:text-xs">
               <span>{levelInfo.currentXP.toLocaleString()} XP</span>
               <span>{levelInfo.nextLevelXP.toLocaleString()} XP</span>
             </div>
-            <Progress value={progressPercent} className="h-3 bg-muted" />
-            <p className="text-xs text-center text-muted-foreground">
+            <Progress value={progressPercent} className="h-2 bg-muted md:h-3" />
+            <p className="text-[10px] text-center text-muted-foreground md:text-xs">
               {(levelInfo.nextLevelXP - levelInfo.currentXP).toLocaleString()} XP to next level
             </p>
           </div>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-2 md:gap-3">
           <StatCard
-            icon={<Target className="h-5 w-5 text-catalan-red" />}
-            label="Vectors Completed"
+            icon={<Target className="h-4 w-4 text-catalan-red md:h-5 md:w-5" />}
+            label="Vectors"
             value={userStats.totalVectors.toLocaleString()}
           />
           <StatCard
-            icon={<TrendingUp className="h-5 w-5 text-catalan-gold" />}
-            label="Global Rank"
+            icon={<TrendingUp className="h-4 w-4 text-catalan-gold md:h-5 md:w-5" />}
+            label="Rank"
             value={`#${userStats.rank}`}
           />
           <StatCard
-            icon={<Flame className="h-5 w-5 text-orange-500" />}
-            label="Day Streak"
-            value={`${userStats.streak} days`}
+            icon={<Flame className="h-4 w-4 text-orange-500 md:h-5 md:w-5" />}
+            label="Streak"
+            value={`${userStats.streak}d`}
           />
           <StatCard
-            icon={<Award className="h-5 w-5 text-emerald-500" />}
+            icon={<Award className="h-4 w-4 text-emerald-500 md:h-5 md:w-5" />}
             label="Accuracy"
             value={`${userStats.accuracy}%`}
           />
@@ -156,11 +158,11 @@ export function ProfileCard({ user }: ProfileCardProps) {
 
         {/* Achievements preview */}
         <div className="space-y-2">
-          <h3 className="font-semibold text-sm flex items-center gap-2">
-            <Award className="h-4 w-4 text-catalan-gold" />
+          <h3 className="font-semibold text-xs flex items-center gap-2 md:text-sm">
+            <Award className="h-3 w-3 text-catalan-gold md:h-4 md:w-4" />
             Recent Achievements
           </h3>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 md:gap-2">
             <AchievementBadge title="First Vector" icon="🎯" unlocked />
             <AchievementBadge title="Week Warrior" icon="⚔️" unlocked />
             <AchievementBadge title="Century Club" icon="💯" unlocked />
@@ -169,8 +171,8 @@ export function ProfileCard({ user }: ProfileCardProps) {
         </div>
 
         {/* Member since */}
-        <div className="flex items-center gap-2 text-sm text-muted-foreground pt-2 border-t">
-          <Calendar className="h-4 w-4" />
+        <div className="flex items-center gap-2 text-xs text-muted-foreground pt-2 border-t md:text-sm">
+          <Calendar className="h-3 w-3 md:h-4 md:w-4" />
           <span>
             Member since{" "}
             {new Date(userStats.joinedDate).toLocaleDateString("en-US", {
@@ -186,12 +188,12 @@ export function ProfileCard({ user }: ProfileCardProps) {
 
 function StatCard({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
-    <div className="rounded-lg border bg-muted/30 p-3 space-y-1">
-      <div className="flex items-center gap-2">
+    <div className="rounded-lg border bg-muted/30 p-2 space-y-0.5 md:p-3 md:space-y-1">
+      <div className="flex items-center gap-1.5 md:gap-2">
         {icon}
-        <span className="text-xs text-muted-foreground">{label}</span>
+        <span className="text-[10px] text-muted-foreground md:text-xs">{label}</span>
       </div>
-      <p className="text-xl font-bold">{value}</p>
+      <p className="text-base font-bold md:text-xl">{value}</p>
     </div>
   )
 }
@@ -199,7 +201,7 @@ function StatCard({ icon, label, value }: { icon: React.ReactNode; label: string
 function AchievementBadge({ title, icon, unlocked }: { title: string; icon: string; unlocked: boolean }) {
   return (
     <div
-      className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-all ${
+      className={`flex items-center gap-1 rounded-full px-2 py-1 text-[10px] font-medium transition-all md:gap-1.5 md:px-3 md:py-1.5 md:text-xs ${
         unlocked
           ? "bg-catalan-gold/20 text-catalan-gold-dark border border-catalan-gold/30"
           : "bg-muted text-muted-foreground opacity-50 grayscale"
@@ -207,7 +209,7 @@ function AchievementBadge({ title, icon, unlocked }: { title: string; icon: stri
       title={unlocked ? title : `${title} - Locked`}
     >
       <span>{icon}</span>
-      <span>{title}</span>
+      <span className="hidden sm:inline">{title}</span>
     </div>
   )
 }

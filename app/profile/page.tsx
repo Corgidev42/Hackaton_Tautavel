@@ -42,15 +42,15 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-background">
       <DashboardHeader user={user} />
-      <main className="container mx-auto px-4 py-8">
-        <div className="flex flex-col gap-8 lg:flex-row">
+      <main className="container mx-auto px-4 py-4 md:py-8">
+        <div className="flex flex-col gap-4 lg:flex-row lg:gap-8">
           {/* Left side - Profile info and XP */}
-          <aside className="w-full lg:w-96 shrink-0 space-y-6">
+          <aside className="w-full lg:w-80 xl:w-96 shrink-0">
             <ProfileCard user={user} />
           </aside>
 
-          {/* Right side - 3D Cave visualization */}
-          <div className="flex-1 space-y-6">
+          {/* Right side - Cave visualization */}
+          <div className="flex-1 space-y-4 md:space-y-6">
             <CaveVisualization selectedSlice={selectedSlice} onSelectSlice={setSelectedSlice} />
             {selectedSlice && <SliceDetail slice={selectedSlice} onClose={() => setSelectedSlice(null)} />}
           </div>
