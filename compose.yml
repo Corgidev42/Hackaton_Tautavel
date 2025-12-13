@@ -1,0 +1,13 @@
+services:
+  frontend:
+    container_name: poc-frontend
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - WATCHPACK_POLLING=true
+      - NEXT_PUBLIC_API_URL=http://backend:4000
