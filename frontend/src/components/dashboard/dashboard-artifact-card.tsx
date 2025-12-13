@@ -59,7 +59,7 @@ export function DashboardArtifactCard({
         <div className="absolute inset-0 flex items-center justify-center overflow-hidden p-4">
           <style dangerouslySetInnerHTML={{
             __html: `
-              @keyframes scroll-carousel-${id} {
+              @keyframes infinite-scroll-${id} {
                 0% {
                   transform: translateX(0);
                 }
@@ -67,18 +67,20 @@ export function DashboardArtifactCard({
                   transform: translateX(-50%);
                 }
               }
-              .carousel-scroll-${id} {
-                animation: ${isHovering ? `scroll-carousel-${id} ${displayedDiscoveries.length * 0.5}s linear infinite` : 'none'};
+              .infinite-marquee-${id} {
+                display: flex;
+                width: fit-content;
+                animation: ${isHovering ? `infinite-scroll-${id} 8s linear infinite` : 'none'};
               }
             `
           }} />
           <div className="relative h-24 w-24 md:h-32 md:w-32 overflow-hidden">
-            <div className={`carousel-scroll-${id} flex h-full`}>
-              {/* Original images */}
+            <div className={`infinite-marquee-${id}`}>
+              {/* First set of items */}
               {displayedDiscoveries.map((discovery) => (
                 <div
                   key={discovery.id}
-                  className="relative h-full w-24 flex-shrink-0 md:w-32"
+                  className="h-24 w-24 flex-shrink-0 md:h-32 md:w-32"
                 >
                   <img
                     src={discovery.imagePath}
@@ -87,11 +89,11 @@ export function DashboardArtifactCard({
                   />
                 </div>
               ))}
-              {/* Duplicated images for seamless loop */}
+              {/* Second set of items (exact duplicate) */}
               {displayedDiscoveries.map((discovery) => (
                 <div
-                  key={`${discovery.id}-dup`}
-                  className="relative h-full w-24 flex-shrink-0 md:w-32"
+                  key={`${discovery.id}-duplicate`}
+                  className="h-24 w-24 flex-shrink-0 md:h-32 md:w-32"
                 >
                   <img
                     src={discovery.imagePath}
