@@ -1,6 +1,11 @@
+"use client"
+
 import Link from "next/link"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 export function Footer() {
+  const { t } = useLanguage()
+
   return (
     <footer className="border-t border-border bg-background py-12">
       <div className="container mx-auto px-4">
@@ -12,65 +17,63 @@ export function Footer() {
               </div>
               <span className="text-lg font-semibold">Tautavel Vector</span>
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              A citizen science project dedicated to preserving archaeological heritage through digital vectorization.
-            </p>
+            <p className="mt-4 text-sm text-muted-foreground">{t("footerDescription")}</p>
           </div>
 
           <div>
-            <h4 className="font-semibold">Project</h4>
+            <h4 className="font-semibold">{t("project")}</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link href="#" className="hover:text-foreground">
-                  About Tautavel
+                  {t("aboutTautavel")}
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-foreground">
-                  How It Works
+                  {t("howItWorks")}
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-foreground">
-                  Research Team
+                  {t("researchTeam")}
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-foreground">
-                  Publications
+                  {t("publications")}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold">Community</h4>
+            <h4 className="font-semibold">{t("community")}</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link href="#" className="hover:text-foreground">
-                  Leaderboard
+                  {t("leaderboard")}
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-foreground">
-                  Forum
+                  {t("forum")}
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-foreground">
-                  Guidelines
+                  {t("guidelines")}
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-foreground">
-                  FAQ
+                  {t("faq")}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold">Partners</h4>
+            <h4 className="font-semibold">{t("partners")}</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link href="#" className="hover:text-foreground">
@@ -92,7 +95,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
-          <p className="text-sm text-muted-foreground">© 2025 Tautavel Vector Project. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2025 Tautavel Vector Project. {t("allRightsReserved")}</p>
           <div className="flex items-center gap-2">
             <div className="h-4 w-6 rounded-sm bg-catalan-gold"></div>
             <div className="h-4 w-6 rounded-sm bg-catalan-red"></div>

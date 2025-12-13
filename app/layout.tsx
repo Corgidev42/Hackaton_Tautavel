@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Playfair_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { LanguageProvider } from "@/lib/i18n/language-context"
 import "./globals.css"
 
 const _geist = Geist({ subsets: ["latin"] })
@@ -10,9 +11,9 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 const _playfair = Playfair_Display({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Tautavel Vector | Citizen Science Project",
+  title: "Tautavel Vector | Projet de Science Citoyenne",
   description:
-    "Help preserve 450,000 years of human history by digitizing archaeological drawings from the Tautavel Cave.",
+    "Aidez à préserver 450 000 ans d'histoire humaine en numérisant les dessins archéologiques de la Grotte de Tautavel.",
   generator: "v0.app",
   icons: {
     icon: [
@@ -39,9 +40,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body className={`font-sans antialiased`}>
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
         <Analytics />
       </body>
     </html>

@@ -1,33 +1,38 @@
-import { Users, FileCheck, Clock, Trophy } from "lucide-react"
+"use client"
 
-const stats = [
-  {
-    icon: FileCheck,
-    value: "12,847",
-    label: "Artifacts Vectorized",
-    description: "Historical drawings preserved forever",
-  },
-  {
-    icon: Users,
-    value: "2,341",
-    label: "Contributors",
-    description: "From 47 different countries",
-  },
-  {
-    icon: Clock,
-    value: "4,230",
-    label: "Hours Contributed",
-    description: "By our amazing community",
-  },
-  {
-    icon: Trophy,
-    value: "89%",
-    label: "Accuracy Rate",
-    description: "Validated by archaeologists",
-  },
-]
+import { Users, FileCheck, Clock, Trophy } from "lucide-react"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 export function StatsSection() {
+  const { t } = useLanguage()
+
+  const stats = [
+    {
+      icon: FileCheck,
+      value: "12 847",
+      label: t("artifactsVectorized"),
+      description: t("historicalDrawings"),
+    },
+    {
+      icon: Users,
+      value: "2 341",
+      label: t("contributorsLabel"),
+      description: t("fromCountries"),
+    },
+    {
+      icon: Clock,
+      value: "4 230",
+      label: t("hoursContributed"),
+      description: t("byOurCommunity"),
+    },
+    {
+      icon: Trophy,
+      value: "89%",
+      label: t("accuracyRateLabel"),
+      description: t("validatedBy"),
+    },
+  ]
+
   return (
     <section className="border-t border-border bg-muted/30 py-20">
       <div className="container mx-auto px-4">

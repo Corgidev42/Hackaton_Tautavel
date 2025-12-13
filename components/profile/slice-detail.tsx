@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { X, Check, Clock, ArrowRight, Layers } from "lucide-react"
 import type { CaveSlice, CaveArtifact } from "@/lib/cave-data"
 import Image from "next/image"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 interface SliceDetailProps {
   slice: CaveSlice
@@ -43,6 +44,7 @@ function getArtifactTypeIcon(type: CaveArtifact["type"]): string {
 }
 
 export function SliceDetail({ slice, onClose }: SliceDetailProps) {
+  const { t } = useLanguage()
   const completedCount = slice.artifacts.filter((a) => a.vectorized).length
   const totalCount = slice.artifacts.length
   const completionPercent = Math.round((completedCount / totalCount) * 100)
@@ -70,7 +72,7 @@ export function SliceDetail({ slice, onClose }: SliceDetailProps) {
         {/* Progress bar */}
         <div className="mt-4 space-y-2">
           <div className="flex items-center justify-between text-sm">
-            <span className="text-muted-foreground">Vectorization Progress</span>
+            <span className="text-muted-foreground">{t("vectorizationProgress")}</span>
             <span className="font-semibold">{completionPercent}%</span>
           </div>
           <div className="h-2 rounded-full bg-muted overflow-hidden">
@@ -80,15 +82,17 @@ export function SliceDetail({ slice, onClose }: SliceDetailProps) {
             />
           </div>
           <p className="text-xs text-muted-foreground">
-            {completedCount} of {totalCount} artifacts vectorized
+            {completedCount} / {totalCount} {t("artifactsVectorizedCount")}
           </p>
         </div>
       </CardHeader>
 
       <CardContent>
         <h4 className="font-semibold mb-3 flex items-center gap-2">
-          Artifacts Found
-          <Badge className="bg-catalan-red/10 text-catalan-red border-catalan-red/20">{totalCount} items</Badge>
+          {t("artifactsFound")}
+          <Badge className="bg-catalan-red/10 text-catalan-red border-catalan-red/20">
+            {totalCount} {t("items")}
+          </Badge>
         </h4>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -127,7 +131,7 @@ export function SliceDetail({ slice, onClose }: SliceDetailProps) {
                 <div className="flex items-center gap-1">
                   <Badge variant="outline" className={`text-xs ${getArtifactTypeColor(artifact.type)}`}>
                     <span className="mr-1">{getArtifactTypeIcon(artifact.type)}</span>
-                    {artifact.type}
+                    {t(artifact.type as "tool" | "bone" | "fossil" | "pottery")}
                   </Badge>
                 </div>
               </div>
@@ -138,7 +142,7 @@ export function SliceDetail({ slice, onClose }: SliceDetailProps) {
                   size="sm"
                   className="w-full mt-2 bg-catalan-red hover:bg-catalan-red-dark text-white opacity-0 group-hover:opacity-100 transition-opacity"
                 >
-                  Vectorize
+                  {t("vectorize")}
                   <ArrowRight className="h-3 w-3 ml-1" />
                 </Button>
               )}
