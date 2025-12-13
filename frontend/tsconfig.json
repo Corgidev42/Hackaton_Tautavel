@@ -5,7 +5,6 @@
       "dom.iterable",
       "esnext"
     ],
-    "baseUrl": "./",
     "allowJs": true,
     "target": "ES6",
     "skipLibCheck": true,
@@ -25,7 +24,7 @@
     ],
     "paths": {
       "@/*": [
-        "./src/*"
+        "./*"
       ]
     }
   },
