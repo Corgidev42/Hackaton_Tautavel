@@ -4,7 +4,11 @@ import { DashboardArtifactCard } from "@/components/dashboard/dashboard-artifact
 import { useLanguage } from "@/lib/i18n/language-context"
 import { Discovery } from "@/lib/discovery-types"
 
-const allArtifacts = [
+const allArtifacts: Array<{
+  id: number
+  status: "completed" | "in-progress" | "not-started"
+  discoveries: Discovery[]
+}> = [
   {
     id: 1,
     status: "completed" as const,
