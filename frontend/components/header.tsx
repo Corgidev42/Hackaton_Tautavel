@@ -17,7 +17,7 @@ export function Header() {
     <>
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto flex h-14 items-center justify-between px-4 md:h-16">
-          <Link href="/" className="flex items-center gap-2 md:gap-3">
+          <Link href="/" className="flex items-center gap-1 md:gap-2">
             <img src="/crane.svg" alt="Tautavel Logo" className="h-8 w-8 md:h-9 md:w-9" />
             <div className="flex flex-col">
               <span className="text-sm font-semibold tracking-tight md:text-lg">Vector' His</span>

@@ -701,6 +701,7 @@ const App: React.FC = () => {
   const totalPlans = 32000;
   const completedPlans = 14250;
   const planProgress = Math.round((completedPlans / totalPlans) * 100);
+  const pendingRewardsCount = mockUsers.reduce((sum, u) => sum + u.rewards.filter(r => !r.claimed).length, 0);
 
   const kpiCards: KPICard[] = [
     {
@@ -726,6 +727,15 @@ const App: React.FC = () => {
       subtitle: 'en ligne maintenant',
       icon: <Activity className="w-6 h-6" />,
       color: 'from-slate-200 to-slate-400',
+      onClick: () => setCurrentView('users')
+    }
+    ,
+    {
+      title: 'Récompenses à attribuer',
+      value: pendingRewardsCount,
+      subtitle: 'en attente de distribution',
+      icon: <Gift className="w-6 h-6" />,
+      color: 'from-catalan-gold to-catalan-gold-light',
       onClick: () => setCurrentView('users')
     }
   ];
