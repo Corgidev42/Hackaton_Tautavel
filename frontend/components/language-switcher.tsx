@@ -17,7 +17,6 @@ export function LanguageSwitcher() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="gap-1.5 px-2">
-          <Globe className="h-4 w-4" />
           <span className="hidden sm:inline">
             <CurrentFlag className="h-3 w-5 rounded-sm overflow-hidden" />
           </span>

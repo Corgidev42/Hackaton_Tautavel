@@ -26,11 +26,6 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-catalan-gold/50 bg-catalan-gold/10 px-3 py-1 md:mb-6 md:px-4 md:py-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-catalan-gold md:h-2 md:w-2"></span>
-            <span className="text-xs font-medium text-catalan-gold-dark md:text-sm">{t("yearsOfHistory")}</span>
-          </div>
-
           <h1 className="font-serif text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-7xl text-balance">
             {t("heroTitle")} <span className="text-catalan-red">{t("heroTitleHighlight")}</span> {t("heroTitleEnd")}
           </h1>
