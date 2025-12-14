@@ -708,7 +708,7 @@ const App: React.FC = () => {
       value: `${completedPlans.toLocaleString()} / ${totalPlans.toLocaleString()}`,
       subtitle: `${planProgress}% de progression`,
       icon: <Map className="w-6 h-6" />,
-      color: 'from-amber-600 to-yellow-600',
+      color: 'from-catalan-red to-catalan-gold',
       progress: planProgress,
       onClick: () => setCurrentView('plans')
     },
@@ -733,7 +733,7 @@ const App: React.FC = () => {
       value: '89%',
       subtitle: 'taux de consensus',
       icon: <CheckCircle className="w-6 h-6" />,
-      color: 'from-amber-500 to-yellow-500',
+      color: 'from-catalan-gold to-catalan-gold-light',
     }
   ];
 
@@ -753,10 +753,10 @@ const App: React.FC = () => {
       <div className={`w-64 bg-white border-r border-gray-200 h-screen fixed left-0 top-0 flex flex-col shadow-lg z-50 transition-transform duration-300 lg:translate-x-0 ${
         isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
-        <div className="p-6 border-b border-gray-200 bg-gradient-to-br from-amber-50 to-white">
+        <div className="p-6 border-b border-gray-200 bg-gradient-to-br from-catalan-gold-light to-white">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <Map className="w-8 h-8 text-amber-600" />
+              <Map className="w-8 h-8 text-catalan-red" />
               <div>
                 <h1 className="text-xl font-bold text-gray-900">ArcheoTrace</h1>
                 <p className="text-xs text-gray-600">Tautavel</p>
@@ -841,7 +841,7 @@ const App: React.FC = () => {
       </nav>
 
       <div className="p-4 border-t border-gray-200">
-        <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 rounded-lg p-3">
+        <div className="bg-gradient-to-r from-catalan-gold-light to-white border border-catalan-gold rounded-lg p-3">
           <p className="text-xs text-gray-800 font-medium">Astuce</p>
           <p className="text-xs text-gray-600 mt-1">Utilisez les raccourcis clavier pour accélérer la validation</p>
         </div>
@@ -863,7 +863,7 @@ const App: React.FC = () => {
           <div
             key={idx}
             onClick={card.onClick}
-            className={`bg-white border border-gray-200 rounded-xl p-6 hover:border-amber-300 transition-all duration-300 hover:shadow-xl shadow-md ${
+            className={`bg-white border border-gray-200 rounded-xl p-6 hover:border-catalan-gold transition-all duration-300 hover:shadow-xl shadow-md ${
               card.onClick ? 'cursor-pointer active:scale-95' : ''
             }`}
           >
@@ -965,10 +965,10 @@ const App: React.FC = () => {
         <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">Activité Récente</h3>
         <div className="space-y-2 sm:space-y-3">
           {[
-            { user: 'Expert_Marie_L', action: 'a validé 12 conflits', time: 'il y a 5 min', color: 'bg-amber-500' },
+            { user: 'Expert_Marie_L', action: 'a validé 12 conflits', time: 'il y a 5 min', color: 'bg-catalan-gold' },
             { user: 'Étudiant_Archeo_23', action: 'a soumis un nouveau tracé', time: 'il y a 12 min', color: 'bg-blue-500' },
             { user: 'Prof_Durant', action: 'a signalé un conflit', time: 'il y a 23 min', color: 'bg-red-600' },
-            { user: 'Bénévole_Alex', action: 'a tracé 34 vecteurs', time: 'il y a 1h', color: 'bg-yellow-500' },
+            { user: 'Bénévole_Alex', action: 'a tracé 34 vecteurs', time: 'il y a 1h', color: 'bg-catalan-gold' },
           ].map((activity, idx) => (
             <div key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors gap-2">
               <div className="flex items-center space-x-2 sm:space-x-3 min-w-0 flex-1">
@@ -989,7 +989,7 @@ const App: React.FC = () => {
       return (
         <div className="flex items-center justify-center h-full">
           <div className="text-center">
-            <CheckCircle className="w-16 h-16 text-amber-600 mx-auto mb-4" />
+            <CheckCircle className="w-16 h-16 text-catalan-red mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-gray-900 mb-2">Tous les Conflits Résolus! 🎉</h3>
             <p className="text-gray-600">Excellent travail! Il n'y a plus de validations en attente.</p>
           </div>
@@ -1012,7 +1012,7 @@ const App: React.FC = () => {
           <div className="flex items-center space-x-2">
             <span className={`px-3 py-1 rounded-full text-sm font-medium ${
               currentConflict.priority === 'high' ? 'bg-rose-500/20 text-rose-300 border border-rose-500/50' :
-              currentConflict.priority === 'medium' ? 'bg-amber-500/20 text-amber-300 border border-amber-500/50' :
+              currentConflict.priority === 'medium' ? 'bg-catalan-gold/20 text-catalan-gold-dark border border-catalan-gold/50' :
               'bg-slate-500/20 text-slate-300 border border-slate-500/50'
             }`}>
               {currentConflict.priority.toUpperCase()} PRIORITY
@@ -1024,7 +1024,7 @@ const App: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
           {/* Left: Visual View */}
           <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md">
-            <div className="p-3 sm:p-4 border-b border-gray-200 bg-gradient-to-r from-amber-50 to-white">
+            <div className="p-3 sm:p-4 border-b border-gray-200 bg-gradient-to-r from-catalan-gold-light to-white">
               <h3 className="text-base sm:text-lg font-bold text-gray-900">{currentConflict.itemName}</h3>
               <p className="text-gray-600 text-xs sm:text-sm">Vue du Plan Archéologique</p>
             </div>
@@ -1063,14 +1063,14 @@ const App: React.FC = () => {
             {/* Layer Toggles */}
             <div className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 shadow-md">
               <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-3 sm:mb-4 flex items-center">
-                <Eye className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-amber-600" />
+                <Eye className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-catalan-red" />
                 Visibilité des Calques
               </h4>
               <div className="space-y-2 sm:space-y-3">
                 {currentConflict.drawings.map((drawing) => (
                   <div
                     key={drawing.userId}
-                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-amber-300 hover:bg-gray-100 transition-colors"
+                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-catalan-gold hover:bg-gray-100 transition-colors"
                   >
                     <div className="flex items-center space-x-2 sm:space-x-3 min-w-0 flex-1">
                       <div
@@ -1087,7 +1087,7 @@ const App: React.FC = () => {
                       className="p-2 hover:bg-gray-200 rounded-lg transition-colors"
                     >
                       {visibleLayers[drawing.userId] ? (
-                        <Eye className="w-5 h-5 text-amber-600" />
+                        <Eye className="w-5 h-5 text-catalan-red" />
                       ) : (
                         <EyeOff className="w-5 h-5 text-gray-400" />
                       )}
@@ -1103,7 +1103,7 @@ const App: React.FC = () => {
               <div className="space-y-2 sm:space-y-3">
                 <button
                   onClick={handleValidateConsensus}
-                  className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 active:scale-95 text-white font-bold py-3 sm:py-4 px-3 sm:px-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-amber-500/50 text-sm sm:text-base touch-manipulation"
+                  className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-catalan-red to-catalan-gold hover:from-catalan-red-dark hover:to-catalan-gold-dark active:scale-95 text-white font-bold py-3 sm:py-4 px-3 sm:px-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-catalan-red/50 text-sm sm:text-base touch-manipulation"
                 >
                   <GitMerge className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                   <span className="truncate">Valider le Consensus</span>
@@ -1113,7 +1113,7 @@ const App: React.FC = () => {
                   <button
                     key={drawing.userId}
                     onClick={() => handleSelectUser(drawing.userName)}
-                    className="w-full flex items-center justify-center space-x-2 bg-gray-100 hover:bg-gray-200 active:scale-95 text-gray-900 font-medium py-3 sm:py-4 px-3 sm:px-4 rounded-lg transition-all duration-300 border border-gray-300 hover:border-amber-500 shadow-sm text-sm sm:text-base touch-manipulation"
+                    className="w-full flex items-center justify-center space-x-2 bg-gray-100 hover:bg-gray-200 active:scale-95 text-gray-900 font-medium py-3 sm:py-4 px-3 sm:px-4 rounded-lg transition-all duration-300 border border-gray-300 hover:border-catalan-gold shadow-sm text-sm sm:text-base touch-manipulation"
                   >
                     <UserCheck className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                     <span className="truncate">Sélectionner {drawing.userName}</span>
@@ -1161,7 +1161,7 @@ const App: React.FC = () => {
         'Industrie': 'bg-blue-100 text-blue-700 border-blue-300',
         'Galet': 'bg-green-100 text-green-700 border-green-300',
         'Schiste': 'bg-purple-100 text-purple-700 border-purple-300',
-        'Ossement': 'bg-yellow-100 text-yellow-700 border-yellow-300',
+        'Ossement': 'bg-orange-100 text-orange-700 border-orange-300',
         'Calcite': 'bg-gray-100 text-gray-700 border-gray-300',
       };
       return colors[type] || 'bg-gray-100 text-gray-700';
@@ -1184,7 +1184,7 @@ const App: React.FC = () => {
               onClick={() => setPlansViewMode('cards')}
               className={`flex items-center gap-2 px-3 py-2 rounded-md transition-all ${
                 plansViewMode === 'cards'
-                  ? 'bg-amber-100 text-amber-900'
+                  ? 'bg-catalan-gold-light text-catalan-red'
                   : 'text-gray-600 hover:bg-gray-100'
               }`}
             >
@@ -1195,7 +1195,7 @@ const App: React.FC = () => {
               onClick={() => setPlansViewMode('list')}
               className={`flex items-center gap-2 px-3 py-2 rounded-md transition-all ${
                 plansViewMode === 'list'
-                  ? 'bg-amber-100 text-amber-900'
+                  ? 'bg-catalan-gold-light text-catalan-red'
                   : 'text-gray-600 hover:bg-gray-100'
               }`}
             >
@@ -1211,7 +1211,7 @@ const App: React.FC = () => {
             {mockPlans.map((plan) => (
               <div
                 key={plan.id}
-                className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:border-amber-300"
+                className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:border-catalan-gold"
               >
                 <div className="relative aspect-video bg-gray-100">
                   <img
@@ -1238,7 +1238,7 @@ const App: React.FC = () => {
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-gray-600">Précision:</span>
-                      <span className={`font-bold ${plan.accuracy >= 90 ? 'text-green-600' : 'text-amber-600'}`}>
+                      <span className={`font-bold ${plan.accuracy >= 90 ? 'text-green-600' : 'text-catalan-red'}`}>
                         {plan.accuracy}%
                       </span>
                     </div>
@@ -1260,7 +1260,7 @@ const App: React.FC = () => {
           <div className="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gradient-to-r from-amber-50 to-white border-b border-gray-200">
+                <thead className="bg-gradient-to-r from-catalan-gold-light to-white border-b border-gray-200">
                   <tr>
                     <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                       Plan
@@ -1300,7 +1300,7 @@ const App: React.FC = () => {
                         {plan.vectorCount}
                       </td>
                       <td className="px-4 py-3 whitespace-nowrap text-center">
-                        <span className={`text-sm font-bold ${plan.accuracy >= 90 ? 'text-green-600' : 'text-amber-600'}`}>
+                        <span className={`text-sm font-bold ${plan.accuracy >= 90 ? 'text-green-600' : 'text-catalan-red'}`}>
                           {plan.accuracy}%
                         </span>
                       </td>
@@ -1342,14 +1342,14 @@ const App: React.FC = () => {
           {mockUsers.map((user) => (
             <div
               key={user.id}
-              className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:border-amber-300"
+              className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:border-catalan-gold"
             >
               {/* User Header */}
               <div className="flex items-start gap-4 mb-4">
                 <img
                   src={user.avatar}
                   alt={user.name}
-                  className="w-16 h-16 rounded-full border-2 border-amber-200"
+                  className="w-16 h-16 rounded-full border-2 border-catalan-gold"
                 />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
@@ -1372,7 +1372,7 @@ const App: React.FC = () => {
                   <div className="text-xs text-gray-600">Plans</div>
                 </div>
                 <div className="text-center p-3 bg-gray-50 rounded-lg">
-                  <div className="text-2xl font-bold text-amber-600">{user.accuracy}%</div>
+                  <div className="text-2xl font-bold text-catalan-red">{user.accuracy}%</div>
                   <div className="text-xs text-gray-600">Précision</div>
                 </div>
                 <div className="text-center p-3 bg-gray-50 rounded-lg">
@@ -1385,7 +1385,7 @@ const App: React.FC = () => {
               {user.rewards.length > 0 && (
                 <div>
                   <h4 className="text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
-                    <Trophy className="w-4 h-4 text-amber-600" />
+                    <Trophy className="w-4 h-4 text-catalan-red" />
                     Récompenses ({user.rewards.length})
                   </h4>
                   <div className="space-y-2">
@@ -1395,11 +1395,11 @@ const App: React.FC = () => {
                         className={`flex items-start gap-3 p-3 rounded-lg border transition-all ${
                           reward.claimed
                             ? 'bg-green-50 border-green-200'
-                            : 'bg-amber-50 border-amber-200'
+                            : 'bg-catalan-gold-light border-catalan-gold'
                         }`}
                       >
                         <div className={`flex-shrink-0 ${
-                          reward.claimed ? 'text-green-600' : 'text-amber-600'
+                          reward.claimed ? 'text-green-600' : 'text-catalan-red'
                         }`}>
                           {getRewardIcon(reward.type)}
                         </div>
@@ -1451,7 +1451,7 @@ const App: React.FC = () => {
       {/* Main Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Shapefile Card */}
-        <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-xl hover:border-amber-300 transition-all duration-300">
+        <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-xl hover:border-catalan-gold transition-all duration-300">
           <div className="bg-gradient-to-br from-red-100 to-red-50 rounded-lg p-4 mb-4">
             <FileText className="w-8 h-8 text-red-600" />
           </div>
@@ -1483,7 +1483,7 @@ const App: React.FC = () => {
         </div>
 
         {/* GeoJSON Card */}
-        <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-xl hover:border-amber-300 transition-all duration-300">
+        <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-xl hover:border-catalan-gold transition-all duration-300">
           <div className="bg-gradient-to-br from-blue-100 to-blue-50 rounded-lg p-4 mb-4">
             <FileText className="w-8 h-8 text-blue-600" />
           </div>
@@ -1515,7 +1515,7 @@ const App: React.FC = () => {
         </div>
 
         {/* DXF Card */}
-        <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-xl hover:border-amber-300 transition-all duration-300">
+        <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-xl hover:border-catalan-gold transition-all duration-300">
           <div className="bg-gradient-to-br from-purple-100 to-purple-50 rounded-lg p-4 mb-4">
             <FileText className="w-8 h-8 text-purple-600" />
           </div>
@@ -1548,9 +1548,9 @@ const App: React.FC = () => {
       </div>
 
       {/* Info Box */}
-      <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border-2 border-amber-200 rounded-xl p-6">
+      <div className="bg-gradient-to-r from-catalan-gold-light to-white border-2 border-catalan-gold rounded-xl p-6">
         <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
-          <AlertTriangle className="w-5 h-5 text-amber-600" />
+          <AlertTriangle className="w-5 h-5 text-catalan-red" />
           Informations utiles
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-700">
@@ -1582,7 +1582,7 @@ const App: React.FC = () => {
           <div className="text-xs text-gray-600">Plans vectorisés</div>
         </div>
         <div className="bg-white border border-gray-200 rounded-xl p-4 text-center shadow-md">
-          <div className="text-2xl font-bold text-amber-600">{completedPlans.toLocaleString()}</div>
+          <div className="text-2xl font-bold text-catalan-red">{completedPlans.toLocaleString()}</div>
           <div className="text-xs text-gray-600">Éléments mappés</div>
         </div>
         <div className="bg-white border border-gray-200 rounded-xl p-4 text-center shadow-md">
@@ -1608,7 +1608,7 @@ const App: React.FC = () => {
 
       {/* Main Heatmap */}
       <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md">
-        <div className="p-4 sm:p-6 border-b border-gray-200 bg-gradient-to-r from-amber-50 to-white">
+        <div className="p-4 sm:p-6 border-b border-gray-200 bg-gradient-to-r from-catalan-gold-light to-white">
           <h3 className="text-lg font-bold text-gray-900 mb-2">Vue du Site Archéologique</h3>
           <p className="text-sm text-gray-600">Zones actives, complétées et non touchées</p>
         </div>
@@ -1732,9 +1732,9 @@ const App: React.FC = () => {
               <span className="text-sm font-medium text-gray-900">À Explorer</span>
               <span className="text-2xl font-bold text-gray-600">1</span>
             </div>
-            <div className="flex items-center justify-between p-3 bg-amber-50 rounded-lg border border-amber-300">
+            <div className="flex items-center justify-between p-3 bg-catalan-gold-light rounded-lg border border-catalan-gold">
               <span className="text-sm font-medium text-gray-900">Avancement Global</span>
-              <span className="text-2xl font-bold text-amber-600">67%</span>
+              <span className="text-2xl font-bold text-catalan-red">67%</span>
             </div>
           </div>
         </div>
@@ -1770,7 +1770,7 @@ const App: React.FC = () => {
                     <div className="flex items-center justify-center gap-2">
                       <div className="w-16 h-2 bg-gray-200 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-amber-600"
+                          className="h-full bg-catalan-red"
                           style={{ width: `${zone.activityLevel}%` }}
                         />
                       </div>
@@ -1803,7 +1803,7 @@ const App: React.FC = () => {
 
         {/* Filter Tabs */}
         <div className="flex flex-wrap gap-2">
-          <button className="px-4 py-2 bg-amber-100 text-amber-900 border border-amber-300 rounded-lg font-medium text-sm">
+          <button className="px-4 py-2 bg-catalan-gold-light text-catalan-red border border-catalan-gold rounded-lg font-medium text-sm">
             Tous ({anomalies.length})
           </button>
           <button className="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-lg font-medium text-sm hover:bg-gray-50">
@@ -1822,7 +1822,7 @@ const App: React.FC = () => {
           {anomalies.map((anomaly) => (
             <div
               key={anomaly.id}
-              className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:border-amber-300"
+              className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:border-catalan-gold"
             >
               {/* Image with highlight border */}
               <div className="relative aspect-square bg-gray-100 overflow-hidden group">
@@ -1837,7 +1837,7 @@ const App: React.FC = () => {
                 {/* Status Badge */}
                 <div className="absolute top-3 right-3">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium border ${
-                    anomaly.status === 'pending' ? 'bg-yellow-100 text-yellow-700 border-yellow-300' :
+                    anomaly.status === 'pending' ? 'bg-orange-100 text-orange-700 border-orange-300' :
                     anomaly.status === 'verified' ? 'bg-blue-100 text-blue-700 border-blue-300' :
                     'bg-green-100 text-green-700 border-green-300'
                   }`}>
@@ -1899,7 +1899,7 @@ const App: React.FC = () => {
 
                 {/* Actions */}
                 <div className="flex items-center gap-2">
-                  <button className="flex-1 flex items-center justify-center gap-2 bg-amber-100 hover:bg-amber-200 text-amber-900 py-2 rounded-lg font-medium text-sm transition-colors">
+                  <button className="flex-1 flex items-center justify-center gap-2 bg-catalan-gold-light hover:bg-catalan-gold text-catalan-red py-2 rounded-lg font-medium text-sm transition-colors">
                     <Heart className="w-4 h-4" />
                     <span>{anomaly.likes}</span>
                   </button>
@@ -1927,7 +1927,7 @@ const App: React.FC = () => {
 
       {/* Main Leaderboard */}
       <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md">
-        <div className="p-4 sm:p-6 border-b border-gray-200 bg-gradient-to-r from-amber-50 to-white">
+        <div className="p-4 sm:p-6 border-b border-gray-200 bg-gradient-to-r from-catalan-gold-light to-white">
           <h3 className="text-lg font-bold text-gray-900">Classement Global</h3>
         </div>
 
@@ -1937,7 +1937,7 @@ const App: React.FC = () => {
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 {/* Rank & Avatar */}
                 <div className="flex items-center gap-4 flex-shrink-0">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-amber-200 to-yellow-300 flex items-center justify-center shadow-md">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-catalan-gold to-catalan-gold-light flex items-center justify-center shadow-md">
                     <span className="font-bold text-lg sm:text-xl text-gray-900">
                       {contributor.rank <= 3 ? contributor.badge : `#${contributor.rank}`}
                     </span>
@@ -1954,7 +1954,7 @@ const App: React.FC = () => {
                   <div className="flex items-center gap-2 mb-1">
                     <h3 className="text-lg font-bold text-gray-900 truncate">{contributor.name}</h3>
                     {contributor.status === 'expert' && (
-                      <Crown className="w-5 h-5 text-yellow-500 flex-shrink-0" />
+                      <Crown className="w-5 h-5 text-catalan-gold-dark flex-shrink-0" />
                     )}
                     {contributor.status === 'troll' && (
                       <Ban className="w-5 h-5 text-red-600 flex-shrink-0" />
@@ -1969,7 +1969,7 @@ const App: React.FC = () => {
                       <span className="text-gray-600">Précision:</span>
                       <p className={`font-bold ${
                         contributor.accuracy >= 90 ? 'text-green-600' :
-                        contributor.accuracy >= 80 ? 'text-amber-600' :
+                        contributor.accuracy >= 80 ? 'text-catalan-red' :
                         'text-red-600'
                       }`}>
                         {contributor.accuracy}%
@@ -2007,19 +2007,19 @@ const App: React.FC = () => {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
         {/* Top Expert */}
-        <div className="bg-gradient-to-br from-amber-50 to-yellow-50 border-2 border-amber-200 rounded-xl p-6 shadow-md">
+        <div className="bg-gradient-to-br from-catalan-gold-light to-white border-2 border-catalan-gold rounded-xl p-6 shadow-md">
           <div className="flex items-center gap-3 mb-4">
-            <Crown className="w-6 h-6 text-yellow-600" />
+            <Crown className="w-6 h-6 text-catalan-gold-dark" />
             <h3 className="text-lg font-bold text-gray-900">Expert du Chantier</h3>
           </div>
           <div className="text-center p-4">
             <img
               src={mockTopContributors[0].avatar}
               alt={mockTopContributors[0].name}
-              className="w-20 h-20 rounded-full mx-auto mb-3 border-3 border-yellow-400 shadow-md"
+              className="w-20 h-20 rounded-full mx-auto mb-3 border-3 border-catalan-gold shadow-md"
             />
             <p className="text-xl font-bold text-gray-900">{mockTopContributors[0].name}</p>
-            <p className="text-amber-600 font-bold text-lg">{mockTopContributors[0].plansValidated} plans validés</p>
+            <p className="text-catalan-red font-bold text-lg">{mockTopContributors[0].plansValidated} plans validés</p>
             <p className="text-gray-600 text-sm">Invitation musée en attente! 🎫</p>
           </div>
         </div>
@@ -2047,12 +2047,12 @@ const App: React.FC = () => {
       {/* Statistics */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-white border border-gray-200 rounded-xl p-4 text-center shadow-md">
-          <Trophy className="w-6 h-6 text-yellow-600 mx-auto mb-2" />
+          <Trophy className="w-6 h-6 text-catalan-gold-dark mx-auto mb-2" />
           <div className="text-2xl font-bold text-gray-900">{mockTopContributors.length}</div>
           <div className="text-xs text-gray-600">Top contributeurs</div>
         </div>
         <div className="bg-white border border-gray-200 rounded-xl p-4 text-center shadow-md">
-          <Crown className="w-6 h-6 text-amber-600 mx-auto mb-2" />
+          <Crown className="w-6 h-6 text-catalan-gold-dark mx-auto mb-2" />
           <div className="text-2xl font-bold text-gray-900">3</div>
           <div className="text-xs text-gray-600">Experts reconnus</div>
         </div>
@@ -2086,7 +2086,7 @@ const App: React.FC = () => {
             <Menu className="w-6 h-6 text-gray-900" />
           </button>
           <div className="flex items-center space-x-2">
-            <Map className="w-6 h-6 text-amber-600" />
+            <Map className="w-6 h-6 text-catalan-red" />
             <h1 className="text-lg font-bold text-gray-900">ArcheoTrace</h1>
           </div>
           <div className="w-10" /> {/* Spacer for centering */}
@@ -2104,15 +2104,15 @@ const App: React.FC = () => {
           {currentView === 'heatmap' && renderHeatmapView()}
           {currentView === 'anomalies' && renderAnomaliesView()}
           {currentView === 'topcontributors' && renderTopContributorsView()}
-          {currentView === 'settings' && renderPlaceholderView('Paramètres', <Settings className="w-16 h-16 text-amber-600 mx-auto mb-4" />)}
+          {currentView === 'settings' && renderPlaceholderView('Paramètres', <Settings className="w-16 h-16 text-catalan-red mx-auto mb-4" />)}
         </div>
       </div>
 
       {/* Toast Notification */}
       {showToast && (
-        <div className="fixed bottom-4 left-4 right-4 sm:bottom-8 sm:right-8 sm:left-auto bg-white border-2 border-amber-500 rounded-lg shadow-2xl p-4 animate-slide-up z-50">
+        <div className="fixed bottom-4 left-4 right-4 sm:bottom-8 sm:right-8 sm:left-auto bg-white border-2 border-catalan-gold rounded-lg shadow-2xl p-4 animate-slide-up z-50">
           <div className="flex items-center space-x-3">
-            <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600 flex-shrink-0" />
+            <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-catalan-red flex-shrink-0" />
             <p className="text-gray-900 font-medium text-sm sm:text-base">{toastMessage}</p>
           </div>
         </div>
@@ -2136,7 +2136,7 @@ const NavItem: React.FC<NavItemProps> = ({ icon, label, active, badge, onClick }
     onClick={onClick}
     className={`w-full flex items-center justify-between p-3 rounded-lg transition-all duration-200 ${
       active
-        ? 'bg-amber-100 text-amber-900 border border-amber-300 shadow-sm'
+        ? 'bg-catalan-gold-light text-catalan-red border border-catalan-gold shadow-sm'
         : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
     }`}
   >
