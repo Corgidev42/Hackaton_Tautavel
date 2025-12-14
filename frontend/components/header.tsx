@@ -28,12 +28,6 @@ export function Header() {
           {/* Desktop nav - Updated links to use actual routes */}
           <nav className="hidden items-center gap-8 lg:flex">
             <Link
-              href="/#artifacts"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {t("artifacts")}
-            </Link>
-            <Link
               href="/about"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
@@ -78,13 +72,6 @@ export function Header() {
         {isMobileMenuOpen && (
           <div className="border-t border-border bg-background px-4 py-4 md:hidden">
             <nav className="flex flex-col gap-3">
-              <Link
-                href="/#artifacts"
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t("artifacts")}
-              </Link>
               <Link
                 href="/about"
                 className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
