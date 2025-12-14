@@ -28,7 +28,7 @@ const allArtifacts = [
     completedBy: "Carlos G.",
     date: "2024-01-14",
     discoveries: [
-      { id: "2-1", category: "pierre" as const, imagePath: "/addons/pierre/pierre-1.png", discovered: true },
+      { id: "2-1", category: "pierre" as const, imagePath: "/addons/pierre/pierre-3.png", discovered: true },
       { id: "2-2", category: "calcite" as const, imagePath: "/addons/calcite/calcite-1.png", discovered: true },
     ],
   },
@@ -42,9 +42,9 @@ const allArtifacts = [
     contributor: "Anna S.",
     discoveries: [
       { id: "3-1", category: "os" as const, imagePath: "/addons/os/os-1.png", discovered: true },
-      { id: "3-2", category: "os" as const, imagePath: "/addons/os/os-2.png", discovered: true },
+      { id: "3-2", category: "os" as const, imagePath: "/addons/os/os-3.png", discovered: true },
       { id: "3-3", category: "calcite" as const, imagePath: "/addons/calcite/calcite-1.png", discovered: false },
-      { id: "3-4", category: "pierre" as const, imagePath: "/addons/pierre/pierre-1.png", discovered: false },
+      { id: "3-4", category: "pierre" as const, imagePath: "/addons/pierre/pierre-4.png", discovered: false },
     ],
   },
   { 
@@ -68,7 +68,7 @@ const allArtifacts = [
     completedBy: "Jean-Pierre L.",
     date: "2024-01-13",
     discoveries: [
-      { id: "5-1", category: "pierre" as const, imagePath: "/addons/pierre/pierre-2.png", discovered: true },
+      { id: "5-1", category: "pierre" as const, imagePath: "/addons/pierre/pierre-2.png", discovered: false },
       { id: "5-2", category: "galet" as const, imagePath: "/addons/galet/galet-1.png", discovered: true },
       { id: "5-3", category: "galet" as const, imagePath: "/addons/galet/galet-2.png", discovered: true },
       { id: "5-4", category: "calcite" as const, imagePath: "/addons/calcite/calcite-2.png", discovered: true },
@@ -83,8 +83,8 @@ const allArtifacts = [
     progress: 34,
     contributor: "Sofia R.",
     discoveries: [
-      { id: "6-1", category: "os" as const, imagePath: "/addons/os/os-1.png", discovered: true },
-      { id: "6-2", category: "calcite" as const, imagePath: "/addons/calcite/calcite-1.png", discovered: true },
+      { id: "6-1", category: "calcite" as const, imagePath: "/addons/calcite/calcite-1.png", discovered: true },
+      { id: "6-2", category: "os" as const, imagePath: "/addons/os/os-1.png", discovered: true },
       { id: "6-3", category: "calcite" as const, imagePath: "/addons/calcite/calcite-2.png", discovered: false },
     ],
   },
@@ -108,8 +108,8 @@ const allArtifacts = [
     completedBy: "Thomas B.",
     date: "2024-01-12",
     discoveries: [
-      { id: "8-1", category: "pierre" as const, imagePath: "/addons/pierre/pierre-1.png", discovered: true },
-      { id: "8-2", category: "galet" as const, imagePath: "/addons/galet/galet-2.png", discovered: true },
+      { id: "8-1", category: "galet" as const, imagePath: "/addons/galet/galet-2.png", discovered: true },
+      { id: "8-2", category: "pierre" as const, imagePath: "/addons/pierre/pierre-1.png", discovered: true },
       { id: "8-3", category: "calcite" as const, imagePath: "/addons/calcite/calcite-1.png", discovered: true },
     ],
   },
@@ -122,8 +122,8 @@ const allArtifacts = [
     completedBy: "Emma W.",
     date: "2024-01-11",
     discoveries: [
-      { id: "9-1", category: "pierre" as const, imagePath: "/addons/pierre/pierre-2.png", discovered: true },
-      { id: "9-2", category: "pierre" as const, imagePath: "/addons/pierre/pierre-1.png", discovered: true },
+      { id: "9-1", category: "pierre" as const, imagePath: "/addons/pierre/pierre-3.png", discovered: true },
+      { id: "9-2", category: "pierre" as const, imagePath: "/addons/pierre/pierre-4.png", discovered: true },
     ],
   },
   {
@@ -148,7 +148,7 @@ const allArtifacts = [
     category: "Fauna", 
     image: "skull",
     discoveries: [
-      { id: "11-1", category: "os" as const, imagePath: "/addons/os/os-1.png", discovered: false },
+      { id: "11-1", category: "calcite" as const, imagePath: "/addons/calcite/calcite-3.png", discovered: true },
       { id: "11-2", category: "os" as const, imagePath: "/addons/os/os-2.png", discovered: false },
       { id: "11-3", category: "calcite" as const, imagePath: "/addons/calcite/calcite-1.png", discovered: false },
     ],
@@ -160,7 +160,7 @@ const allArtifacts = [
     category: "Stone Tools", 
     image: "core",
     discoveries: [
-      { id: "12-1", category: "pierre" as const, imagePath: "/addons/pierre/pierre-1.png", discovered: false },
+      { id: "12-1", category: "galet" as const, imagePath: "/addons/galet/galet-4.png", discovered: true },
       { id: "12-2", category: "galet" as const, imagePath: "/addons/galet/galet-1.png", discovered: false },
     ],
   },
@@ -173,7 +173,7 @@ const allArtifacts = [
     completedBy: "Lucia T.",
     date: "2024-01-10",
     discoveries: [
-      { id: "13-1", category: "pierre" as const, imagePath: "/addons/pierre/pierre-2.png", discovered: true },
+      { id: "13-1", category: "galet" as const, imagePath: "/addons/galet/galet-3.png", discovered: true },
       { id: "13-2", category: "pierre" as const, imagePath: "/addons/pierre/pierre-1.png", discovered: true },
       { id: "13-3", category: "galet" as const, imagePath: "/addons/galet/galet-1.png", discovered: true },
       { id: "13-4", category: "calcite" as const, imagePath: "/addons/calcite/calcite-2.png", discovered: true },
@@ -189,7 +189,7 @@ const allArtifacts = [
     progress: 12,
     contributor: "Hans M.",
     discoveries: [
-      { id: "14-1", category: "os" as const, imagePath: "/addons/os/os-1.png", discovered: true },
+      { id: "14-1", category: "os" as const, imagePath: "/addons/os/os-4.png", discovered: true },
       { id: "14-2", category: "pierre" as const, imagePath: "/addons/pierre/pierre-1.png", discovered: false },
       { id: "14-3", category: "galet" as const, imagePath: "/addons/galet/galet-2.png", discovered: false },
     ],
@@ -215,7 +215,7 @@ const allArtifacts = [
     completedBy: "Marie D.",
     date: "2024-01-09",
     discoveries: [
-      { id: "16-1", category: "pierre" as const, imagePath: "/addons/pierre/pierre-1.png", discovered: true },
+      { id: "16-1", category: "os" as const, imagePath: "/addons/os/os-3.png", discovered: true },
       { id: "16-2", category: "pierre" as const, imagePath: "/addons/pierre/pierre-2.png", discovered: true },
       { id: "16-3", category: "calcite" as const, imagePath: "/addons/calcite/calcite-1.png", discovered: true },
     ],

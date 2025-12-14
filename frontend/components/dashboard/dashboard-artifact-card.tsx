@@ -42,6 +42,10 @@ export function DashboardArtifactCard({
     imagePath: d.discovered ? d.imagePath : "/addons/placeholder.svg"
   }))
 
+  // Calculate duration based on number of images for consistent speed
+  // 2 seconds per image for smooth scrolling
+  const animationDuration = displayedDiscoveries.length * 2
+
   return (
     <CardWrapper
       {...cardProps}
@@ -70,7 +74,7 @@ export function DashboardArtifactCard({
               .infinite-marquee-${id} {
                 display: flex;
                 width: fit-content;
-                animation: ${isHovering ? `infinite-scroll-${id} 8s linear infinite` : 'none'};
+                animation: ${isHovering ? `infinite-scroll-${id} ${animationDuration}s linear infinite` : 'none'};
               }
             `
           }} />
