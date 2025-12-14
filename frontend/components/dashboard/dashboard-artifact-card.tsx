@@ -4,37 +4,25 @@ import { cn } from "@/lib/utils"
 import { Check, Clock, Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Discovery } from "@/lib/discovery-types"
 import Image from "next/image"
 
 interface DashboardArtifactCardProps {
   id: number
   status: "completed" | "in-progress" | "not-started"
-  title: string
-  category: string
-  image: string
-  progress?: number
-  contributor?: string
-  completedBy?: string
-  date?: string
   discoveries?: Discovery[]
 }
 
 export function DashboardArtifactCard({
   id,
   status,
-  title,
-  category,
-  progress,
-  contributor,
-  completedBy,
-  date,
   discoveries = [],
 }: DashboardArtifactCardProps) {
   const CardWrapper = status === "not-started" ? Link : "div"
   const cardProps = status === "not-started" ? { href: `/vectorize/${id}` } : {}
   const [isHovering, setIsHovering] = useState(false)
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   // Filter out only discovered items for display
   const displayedDiscoveries = discoveries.map(d => ({
@@ -45,6 +33,32 @@ export function DashboardArtifactCard({
   // Calculate duration based on number of images for consistent speed
   // 2 seconds per image for smooth scrolling
   const animationDuration = displayedDiscoveries.length * 2
+  const timePerImage = 2000 // 2 seconds in milliseconds
+
+  // Synchronize current index with animation
+  useEffect(() => {
+    if (!isHovering || displayedDiscoveries.length === 0) return
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev: number) => (prev + 1) % displayedDiscoveries.length)
+    }, timePerImage)
+
+    return () => clearInterval(interval)
+  }, [isHovering, displayedDiscoveries.length, timePerImage])
+
+  // Reset index when hover stops
+  useEffect(() => {
+    if (!isHovering) {
+      setCurrentIndex(0)
+    }
+  }, [isHovering])
+
+  // Get current artifact info
+  const currentArtifact = displayedDiscoveries[currentIndex] || displayedDiscoveries[0]
+  
+  // Find if the current artifact is actually discovered
+  const currentDiscovery = discoveries[currentIndex] || discoveries[0]
+  const isCurrentDiscovered = currentDiscovery?.discovered ?? false
 
   return (
     <CardWrapper
@@ -152,37 +166,22 @@ export function DashboardArtifactCard({
         {status === "in-progress" && <Clock className="h-3 w-3 md:h-4 md:w-4" />}
       </div>
 
-      {/* Progress bar for in-progress */}
-      {status === "in-progress" && progress !== undefined && (
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-catalan-gold/30 md:h-1.5">
-          <div className="h-full bg-catalan-gold transition-all duration-500" style={{ width: `${progress}%` }}></div>
+      {/* Title in top right - only shown if discovered */}
+      {currentArtifact && isCurrentDiscovered && (
+        <div className="absolute right-2 top-2 max-w-[60%] rounded-md bg-background/40 px-2 py-1 backdrop-blur-sm md:right-3 md:top-3 transition-opacity duration-300">
+          <div className="truncate text-xs font-semibold md:text-sm">{currentArtifact.title}</div>
         </div>
       )}
 
-      {/* Title in top right */}
-      <div className="absolute right-2 top-2 max-w-[60%] rounded-md bg-background/40 px-2 py-1 backdrop-blur-sm md:right-3 md:top-3">
-        <div className="truncate text-xs font-semibold md:text-sm">{title}</div>
-      </div>
-
-      {/* Bottom info: last contributor and date */}
-      {((status === "completed" && completedBy) || (status === "in-progress" && contributor)) && (
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-center md:bottom-3">
+      {/* Bottom info: contributor and date - only shown if discovered */}
+      {currentArtifact && isCurrentDiscovered && currentArtifact.completedBy && (
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-center md:bottom-3 transition-opacity duration-300">
           <div className="rounded-md bg-background/40 px-2 py-1 backdrop-blur-sm">
-            {status === "completed" && completedBy && (
-              <>
-                <div className="text-[10px] font-medium md:text-xs">
-                  by {completedBy}
-                </div>
-                <div className="text-[9px] text-muted-foreground md:text-[10px]">{date}</div>
-              </>
-            )}
-            {status === "in-progress" && contributor && (
-              <>
-                <div className="text-[10px] font-medium md:text-xs">
-                  {contributor}
-                </div>
-                <div className="text-[9px] font-semibold text-catalan-gold md:text-[10px]">{progress}%</div>
-              </>
+            <div className="text-[10px] font-medium md:text-xs">
+              by {currentArtifact.completedBy}
+            </div>
+            {currentArtifact.date && (
+              <div className="text-[9px] text-muted-foreground md:text-[10px]">{currentArtifact.date}</div>
             )}
           </div>
         </div>

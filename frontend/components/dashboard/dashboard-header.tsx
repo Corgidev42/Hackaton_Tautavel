@@ -38,9 +38,7 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-14 items-center justify-between px-4 md:h-16">
         <Link href="/" className="flex items-center gap-2 md:gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded bg-catalan-red md:h-9 md:w-9">
-            <span className="font-serif text-base font-bold text-white md:text-lg">T</span>
-          </div>
+          <img src="/crane.svg" alt="Tautavel Logo" className="h-8 w-8 md:h-9 md:w-9" />
           <div className="flex flex-col">
             <span className="text-sm font-semibold tracking-tight md:text-lg">Tautavel Vector</span>
             <span className="hidden text-xs text-muted-foreground sm:block">{t("citizenScienceProject")}</span>

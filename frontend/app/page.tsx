@@ -1,7 +1,5 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
-import { ArtifactGrid } from "@/components/artifact-grid"
-import { StatsSection } from "@/components/stats-section"
 import { Footer } from "@/components/footer"
 
 export default function HomePage() {
@@ -10,8 +8,6 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
-        <ArtifactGrid />
-        <StatsSection />
       </main>
       <Footer />
     </div>

@@ -5,12 +5,23 @@ import { ArrowRight } from "lucide-react"
 import { useLanguage } from "@/lib/i18n/language-context"
 import { TautavelSkull3D } from "@/components/tautavel-skull-3d"
 import Link from "next/link"
+import { useEffect } from "react"
 
 export function HeroSection() {
   const { t } = useLanguage()
 
+  useEffect(() => {
+    // Empêcher le scroll quand le composant est monté
+    document.body.style.overflow = 'hidden'
+    
+    // Réactiver le scroll quand le composant est démonté
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [])
+
   return (
-    <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-muted/30 to-background py-12 md:py-20 lg:py-32">
+    <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-muted/30 to-background py-12 md:py-20 lg:py-32 h-screen flex items-center">
       <TautavelSkull3D />
 
       <div className="container mx-auto px-4 relative z-10">
