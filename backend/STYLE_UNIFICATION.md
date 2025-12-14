@@ -1,7 +1,7 @@
 # Unification Visuelle Backend ↔ Frontend
 
 ## 🎨 Objectif
-Harmoniser complètement le style du backend avec celui du frontend pour créer une expérience cohérente à travers toute l'application ArcheoTrace.
+Harmoniser complètement le style du backend avec celui du frontend pour créer une expérience cohérente à travers toute l'application Vector' His.
 
 ## 🏴 Palette de Couleurs Catalanes
 
@@ -133,7 +133,7 @@ backend/
 
 ## 🚀 Résultat Final
 
-L'application ArcheoTrace présente maintenant :
+L'application Vector'His présente maintenant :
 - Une **identité visuelle cohérente** entre frontend et backend
 - Des couleurs qui **racontent une histoire** (patrimoine catalan)
 - Un design **professionnel et élégant**

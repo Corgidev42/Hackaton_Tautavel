@@ -1,4 +1,4 @@
-# Charte Graphique Tautavel - ArcheoTrace
+# Charte Graphique Tautavel - Vector' His
 
 ## 🎨 Couleurs Principales
 

@@ -20,7 +20,7 @@ export function Header() {
           <Link href="/" className="flex items-center gap-2 md:gap-3">
             <img src="/crane.svg" alt="Tautavel Logo" className="h-8 w-8 md:h-9 md:w-9" />
             <div className="flex flex-col">
-              <span className="text-sm font-semibold tracking-tight md:text-lg">Tautavel Vector</span>
+              <span className="text-sm font-semibold tracking-tight md:text-lg">Vector' His</span>
               <span className="hidden text-xs text-muted-foreground sm:block">{t("citizenScienceProject")}</span>
             </div>
           </Link>

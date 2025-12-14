@@ -209,7 +209,7 @@ export const translations = {
       "L'étude de leurs restes et de leurs outils nous permet de mieux comprendre l'évolution humaine, les migrations préhistoriques et les modes de vie de nos ancêtres lointains.",
     ourMission: "Notre Mission",
     missionParagraph1:
-      "Le projet Tautavel Vector vise à préserver numériquement les milliers de dessins archéologiques réalisés au cours de 50 ans de fouilles. Ces dessins représentent un patrimoine scientifique inestimable.",
+      "Le projet Vector' His vise à préserver numériquement les milliers de dessins archéologiques réalisés au cours de 50 ans de fouilles. Ces dessins représentent un patrimoine scientifique inestimable.",
     missionParagraph2:
       "Grâce à la contribution de citoyens du monde entier, nous transformons ces dessins en fichiers vectoriels haute résolution, garantissant leur préservation pour les générations futures et facilitant la recherche scientifique.",
 
@@ -447,7 +447,7 @@ export const translations = {
       "Studying their remains and tools helps us better understand human evolution, prehistoric migrations, and the lifestyles of our distant ancestors.",
     ourMission: "Our Mission",
     missionParagraph1:
-      "The Tautavel Vector project aims to digitally preserve thousands of archaeological drawings created over 50 years of excavations. These drawings represent an invaluable scientific heritage.",
+      "The Vector' His project aims to digitally preserve thousands of archaeological drawings created over 50 years of excavations. These drawings represent an invaluable scientific heritage.",
     missionParagraph2:
       "Through contributions from citizens worldwide, we transform these drawings into high-resolution vector files, ensuring their preservation for future generations and facilitating scientific research.",
 
@@ -686,7 +686,7 @@ export const translations = {
       "L'estudi de les seves restes i eines ens ajuda a entendre millor l'evolució humana, les migracions prehistòriques i els estils de vida dels nostres avantpassats llunyans.",
     ourMission: "La Nostra Missió",
     missionParagraph1:
-      "El projecte Tautavel Vector té com a objectiu preservar digitalment milers de dibuixos arqueològics creats al llarg de 50 anys d'excavacions. Aquests dibuixos representen un patrimoni científic inestimable.",
+      "El projecte Vector' His té com a objectiu preservar digitalment milers de dibuixos arqueològics creats al llarg de 50 anys d'excavacions. Aquests dibuixos representen un patrimoni científic inestimable.",
     missionParagraph2:
       "Gràcies a les contribucions de ciutadans de tot el món, transformem aquests dibuixos en fitxers vectorials d'alta resolució, garantint la seva preservació per a les generacions futures i facilitant la recerca científica.",
 
@@ -926,7 +926,7 @@ export const translations = {
       "El estudio de sus restos y herramientas nos ayuda a comprender mejor la evolución humana, las migraciones prehistóricas y los estilos de vida de nuestros antepasados lejanos.",
     ourMission: "Nuestra Misión",
     missionParagraph1:
-      "El proyecto Tautavel Vector tiene como objetivo preservar digitalmente miles de dibujos arqueológicos creados a lo largo de 50 años de excavaciones. Estos dibujos representan un patrimonio científico invaluable.",
+      "El proyecto Vector' His tiene como objetivo preservar digitalmente miles de dibujos arqueológicos creados a lo largo de 50 años de excavaciones. Estos dibujos representan un patrimonio científico invaluable.",
     missionParagraph2:
       "Gracias a las contribuciones de ciudadanos de todo el mundo, transformamos estos dibujos en archivos vectoriales de alta resolución, garantizando su preservación para las generaciones futuras y facilitando la investigación científica.",
 
