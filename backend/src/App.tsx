@@ -344,7 +344,7 @@ const mockUsers: User[] = [
         id: 'rew-002',
         type: 'badge',
         title: 'Expert Niveau 1',
-        description: '50 plans complétés avec 90% de précision',
+        description: '50 plans complétés et validés',
         earnedAt: '2025-12-01T00:00:00Z',
         claimed: true
       }
@@ -364,7 +364,7 @@ const mockUsers: User[] = [
       {
         id: 'rew-003',
         type: 'merch',
-        title: 'T-Shirt ArcheoTrace',
+        title: 'T-Shirt Vector\' His',
         description: 'T-Shirt collector du projet',
         earnedAt: '2025-11-20T00:00:00Z',
         claimed: false
@@ -701,6 +701,7 @@ const App: React.FC = () => {
   const totalPlans = 32000;
   const completedPlans = 14250;
   const planProgress = Math.round((completedPlans / totalPlans) * 100);
+  const pendingRewardsCount = mockUsers.reduce((sum, u) => sum + u.rewards.filter(r => !r.claimed).length, 0);
 
   const kpiCards: KPICard[] = [
     {
@@ -727,13 +728,15 @@ const App: React.FC = () => {
       icon: <Activity className="w-6 h-6" />,
       color: 'from-slate-200 to-slate-400',
       onClick: () => setCurrentView('users')
-    },
+    }
+    ,
     {
-      title: 'Précision',
-      value: '89%',
-      subtitle: 'taux de consensus',
-      icon: <CheckCircle className="w-6 h-6" />,
+      title: 'Récompenses à attribuer',
+      value: pendingRewardsCount,
+      subtitle: 'en attente de distribution',
+      icon: <Gift className="w-6 h-6" />,
       color: 'from-catalan-gold to-catalan-gold-light',
+      onClick: () => setCurrentView('users')
     }
   ];
 
@@ -756,9 +759,9 @@ const App: React.FC = () => {
         <div className="p-6 border-b border-gray-200 bg-gradient-to-br from-catalan-gold-light to-white">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <Map className="w-8 h-8 text-catalan-red" />
+              <img src="/crane.svg" alt="Vector' His" className="w-10 h-10 object-contain" />
               <div>
-                <h1 className="text-xl font-bold text-gray-900">ArcheoTrace</h1>
+                <h1 className="text-xl font-bold text-gray-900">Vector' His</h1>
                 <p className="text-xs text-gray-600">Tautavel</p>
               </div>
             </div>
@@ -1236,12 +1239,6 @@ const App: React.FC = () => {
                       <span className="text-gray-600">Vecteurs:</span>
                       <span className="text-gray-900 font-medium">{plan.vectorCount}</span>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-600">Précision:</span>
-                      <span className={`font-bold ${plan.accuracy >= 90 ? 'text-green-600' : 'text-catalan-red'}`}>
-                        {plan.accuracy}%
-                      </span>
-                    </div>
                     <div className="flex items-center justify-between text-xs">
                       <span className="text-gray-500">
                         <Calendar className="w-3 h-3 inline mr-1" />
@@ -1274,9 +1271,6 @@ const App: React.FC = () => {
                     <th className="px-4 py-3 text-center text-xs font-medium text-gray-700 uppercase tracking-wider">
                       Vecteurs
                     </th>
-                    <th className="px-4 py-3 text-center text-xs font-medium text-gray-700 uppercase tracking-wider">
-                      Précision
-                    </th>
                     <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                       Date
                     </th>
@@ -1298,11 +1292,6 @@ const App: React.FC = () => {
                       </td>
                       <td className="px-4 py-3 whitespace-nowrap text-center text-sm text-gray-900">
                         {plan.vectorCount}
-                      </td>
-                      <td className="px-4 py-3 whitespace-nowrap text-center">
-                        <span className={`text-sm font-bold ${plan.accuracy >= 90 ? 'text-green-600' : 'text-catalan-red'}`}>
-                          {plan.accuracy}%
-                        </span>
                       </td>
                       <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-600">
                         {new Date(plan.completedAt).toLocaleDateString('fr-FR')}
@@ -1366,14 +1355,10 @@ const App: React.FC = () => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 mb-4">
+              <div className="grid grid-cols-2 gap-4 mb-4">
                 <div className="text-center p-3 bg-gray-50 rounded-lg">
                   <div className="text-2xl font-bold text-gray-900">{user.plansCompleted}</div>
                   <div className="text-xs text-gray-600">Plans</div>
-                </div>
-                <div className="text-center p-3 bg-gray-50 rounded-lg">
-                  <div className="text-2xl font-bold text-catalan-red">{user.accuracy}%</div>
-                  <div className="text-xs text-gray-600">Précision</div>
                 </div>
                 <div className="text-center p-3 bg-gray-50 rounded-lg">
                   <div className="text-2xl font-bold text-gray-900">{user.points}</div>
@@ -1576,7 +1561,7 @@ const App: React.FC = () => {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         <div className="bg-white border border-gray-200 rounded-xl p-4 text-center shadow-md">
           <div className="text-2xl font-bold text-gray-900">{mockPlans.length}</div>
           <div className="text-xs text-gray-600">Plans vectorisés</div>
@@ -1584,10 +1569,6 @@ const App: React.FC = () => {
         <div className="bg-white border border-gray-200 rounded-xl p-4 text-center shadow-md">
           <div className="text-2xl font-bold text-catalan-red">{completedPlans.toLocaleString()}</div>
           <div className="text-xs text-gray-600">Éléments mappés</div>
-        </div>
-        <div className="bg-white border border-gray-200 rounded-xl p-4 text-center shadow-md">
-          <div className="text-2xl font-bold text-green-600">89%</div>
-          <div className="text-xs text-gray-600">Précision moyenne</div>
         </div>
         <div className="bg-white border border-gray-200 rounded-xl p-4 text-center shadow-md">
           <div className="text-2xl font-bold text-blue-600">3.2MB</div>
@@ -1960,20 +1941,10 @@ const App: React.FC = () => {
                       <Ban className="w-5 h-5 text-red-600 flex-shrink-0" />
                     )}
                   </div>
-                  <div className="grid grid-cols-2 gap-3 text-sm">
+                  <div className="grid grid-cols-1 gap-3 text-sm">
                     <div>
                       <span className="text-gray-600">Plans validés:</span>
                       <p className="font-bold text-gray-900">{contributor.plansValidated}</p>
-                    </div>
-                    <div>
-                      <span className="text-gray-600">Précision:</span>
-                      <p className={`font-bold ${
-                        contributor.accuracy >= 90 ? 'text-green-600' :
-                        contributor.accuracy >= 80 ? 'text-catalan-red' :
-                        'text-red-600'
-                      }`}>
-                        {contributor.accuracy}%
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -2036,7 +2007,7 @@ const App: React.FC = () => {
                 <Ban className="w-5 h-5 text-red-600 flex-shrink-0" />
                 <div className="flex-1 min-w-0">
                   <p className="font-medium text-gray-900 truncate">{troll.name}</p>
-                  <p className="text-xs text-red-600">Précision: {troll.accuracy}%</p>
+                  <p className="text-xs text-gray-700">Plans validés: {troll.plansValidated}</p>
                 </div>
               </div>
             ))}
@@ -2087,7 +2058,7 @@ const App: React.FC = () => {
           </button>
           <div className="flex items-center space-x-2">
             <Map className="w-6 h-6 text-catalan-red" />
-            <h1 className="text-lg font-bold text-gray-900">ArcheoTrace</h1>
+            <h1 className="text-lg font-bold text-gray-900">Vector' His</h1>
           </div>
           <div className="w-10" /> {/* Spacer for centering */}
         </div>

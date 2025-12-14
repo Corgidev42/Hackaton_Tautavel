@@ -15,7 +15,7 @@ export function Footer() {
               <div className="flex h-9 w-9 items-center justify-center rounded bg-catalan-red">
                 <span className="font-serif text-lg font-bold text-white">T</span>
               </div>
-              <span className="text-lg font-semibold">Tautavel Vector</span>
+              <span className="text-lg font-semibold">Vector' His</span>
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">{t("footerDescription")}</p>
           </div>
@@ -95,7 +95,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
-          <p className="text-sm text-muted-foreground">© 2025 Tautavel Vector Project. {t("allRightsReserved")}</p>
+          <p className="text-sm text-muted-foreground">© 2025 Vector' His Project. {t("allRightsReserved")}</p>
           <div className="flex items-center gap-2">
             <div className="h-4 w-6 rounded-sm bg-catalan-gold"></div>
             <div className="h-4 w-6 rounded-sm bg-catalan-red"></div>

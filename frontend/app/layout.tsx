@@ -11,7 +11,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 const _playfair = Playfair_Display({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Tautavel Vector | Projet de Science Citoyenne",
+  title: "Vector' His | Projet de Science Citoyenne",
   description:
     "Aidez à préserver 450 000 ans d'histoire humaine en numérisant les dessins archéologiques de la Grotte de Tautavel.",
   generator: "v0.app",
